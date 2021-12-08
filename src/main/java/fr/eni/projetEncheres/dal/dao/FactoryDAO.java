@@ -7,16 +7,15 @@ import fr.eni.projetEncheres.dal.jdbc.RetraitDAOJdbcImpl;
 import fr.eni.projetEncheres.dal.jdbc.UtilisateurDAOJdbcImpl;
 
 /**
- * Daphné
+ * @author Daphné
  */
-
 public abstract class FactoryDAO {
 	
 	public static UtilisateurDAO getUtilisateurDAO() {
 		return new UtilisateurDAOJdbcImpl();
 	}
 	
-	public static RetraitDAO RetraitDAO() {
+	public static RetraitDAO getRetraitDAO() {
 		return new RetraitDAOJdbcImpl();
 	}
 	
@@ -24,7 +23,7 @@ public abstract class FactoryDAO {
 		return new EnchereDAOJdbcImpl();
 	}
 	
-	public static ArticleVenduDAO ArticleVenduDAO() {
+	public static ArticleVenduDAO getArticleVenduDAO() {
 		return new ArticleVenduDAOJdbcImpl();
 	}
 	
@@ -33,3 +32,5 @@ public abstract class FactoryDAO {
 	}
 	
 }
+
+

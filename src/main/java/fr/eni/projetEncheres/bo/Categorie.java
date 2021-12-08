@@ -3,14 +3,12 @@ package fr.eni.projetEncheres.bo;
 /**
  * @author Daphné 
  */
-
 public class Categorie {
 	// Attributs :
 	private int no_categorie;
 	private String libelle;
 	
-	// Constructeur : 
-	
+	// Constructeurs : 
 	public Categorie() {
     }
 	
@@ -44,3 +42,4 @@ public class Categorie {
 	}
 
 }
+

@@ -7,7 +7,6 @@ import fr.eni.projetEncheres.bo.Retrait;
 /**
  * @author Daphné
  */
-
 public interface RetraitDAO {
 	
 	public void insert(Retrait retrait); // throws Exception

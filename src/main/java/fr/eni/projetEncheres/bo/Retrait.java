@@ -3,7 +3,6 @@ package fr.eni.projetEncheres.bo;
 /**
  * @author Daphné 
  */
-
 public class Retrait {
 	// Attributs :
 	private int no_article;
@@ -12,7 +11,6 @@ public class Retrait {
     private String ville;
     
     // Constructeurs :
-    
     public Retrait() {
     }
     
@@ -58,6 +56,8 @@ public class Retrait {
 				+ ville + "]";
 	}
     
-    
-
 }
+
+
+
+

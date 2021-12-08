@@ -5,7 +5,6 @@ import java.time.LocalDate;
 /**
  * @author Daphné 
  */
-
 public class Enchere {
 	// Atributs :
 	private int no_utilisateur;
@@ -14,7 +13,6 @@ public class Enchere {
     private int montant_enchere;
     
     // Constructeur :
-    
     public Enchere() {
     }
     
@@ -67,3 +65,6 @@ public class Enchere {
 	}
    
 }
+
+
+

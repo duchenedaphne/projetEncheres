@@ -1,18 +1,18 @@
 package fr.eni.projetEncheres.bll;
 
 import fr.eni.projetEncheres.bo.Utilisateur;
+import fr.eni.projetEncheres.dal.dao.FactoryDAO;
 import fr.eni.projetEncheres.dal.dao.UtilisateurDAO;
 
 /**
  * @author Daphné
  */
-
 public class UtilisateurManager {
 	
 	private UtilisateurDAO utilisateurDAO;
 
 	public UtilisateurManager() {
-		this.utilisateurDAO = utilisateurDAO;
+		this.utilisateurDAO = FactoryDAO.getUtilisateurDAO();
 	}
 	
 	public Utilisateur ajouterUtilisateur(String pseudo, String nom, String prenom, String email,
@@ -26,3 +26,5 @@ public class UtilisateurManager {
 	}
 
 }
+
+
