@@ -16,25 +16,7 @@
 
 <body>
 	<!-- En-tête de la page -->
-        <header>
-        <div class="container-fluid d-flex justify-content-between shadow p-3 mb-5 bg-white rounded">
-
-            <div id="logo" class="pull-left">
-                <a href="#intro"><img src="img/logo.svg" alt="" title="" width="120px" /></a>
-            </div>
-            <nav id="nav-menu-container">
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a class="nav-link" href="Connection.html">Se connecter</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Inscription.html">S'inscrire</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        </header>
+        <%@ include file="jspf/header.jspf" %>
 
         <!-- Bloc information -->
         <p>100% GRATUIT  /  Ecologique / Solidaire </p>
@@ -54,11 +36,6 @@
     
     </body>
         <!-- Pied de page -->
-        <footer>
-        	<div class="container-fluid d-flex justify-content-between shadow p-3 mb-5 bg-white rounded text-center">
-            <p>© Copyright - Tous droits réservés</p>
-            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-            </div>
-        </footer>
+        <%@ include file="jspf/footer.jspf" %>
 </body>
 </html>
