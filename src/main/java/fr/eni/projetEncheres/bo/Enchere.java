@@ -6,7 +6,7 @@ import java.time.LocalDate;
  * @author Daphné 
  */
 public class Enchere {
-	// Atributs :
+	// Attributs :
 	private int no_enchere; //@Julian
 	private int no_utilisateur;
     private int no_article;
