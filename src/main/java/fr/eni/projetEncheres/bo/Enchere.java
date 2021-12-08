@@ -7,6 +7,7 @@ import java.time.LocalDate;
  */
 public class Enchere {
 	// Atributs :
+	private int no_enchere; //@Julian
 	private int no_utilisateur;
     private int no_article;
     private LocalDate date_enchere;
@@ -24,7 +25,16 @@ public class Enchere {
 		this.montant_enchere = montant_enchere;
 	}
 	
-	// Getter / Setter :
+	// Getter / Setter :	
+	
+	public int getNo_enchere() {
+		return no_enchere;
+	}
+
+	public void setNo_enchere(int no_enchere) {
+		this.no_enchere = no_enchere;
+	}
+	
 	public int getNo_utilisateur() {
 		return no_utilisateur;
 	}

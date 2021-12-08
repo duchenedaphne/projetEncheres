@@ -20,26 +20,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * @author Julian
+ */
+
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
-	
-	//CRUD// Gestion de l'objet ArticleVendu
-	
-	public ArticleVendu insert(ArticleVendu av) {
-		return null;
-		
-	}
-	
-	public ArticleVendu update(ArticleVendu av) {
-		return null;
-		
-	}
-	
+
+	@Override
 	public ArticleVendu selectArticleVenduById(int no_article) {
+		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void insert(ArticleVendu av) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void update(ArticleVendu av) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int no_article) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<ArticleVendu> select() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ArticleVendu> selectAllArticles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ArticleVendu> selectAllArticlesByUtilisateur(Utilisateur u) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
+
 
 	
 }
