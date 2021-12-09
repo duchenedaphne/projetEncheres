@@ -21,7 +21,7 @@
 	<c:if test="${empty sessionScope.logged}">
 	
 	<body>
-	    <!-- En-tête de la pagee -->
+	    <!-- En-tête de la page -->
         <%@ include file="jspf/header.jspf" %>
 
          <!-- Carousel -->
