@@ -5,13 +5,17 @@
 	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logo.svg" alt="logo" title="" width="120px" /></a>
         </div>
          <!-- Retour en arrière --><!-- Rafraîchir -->
-        <div id="BackAndRefresh">
-		<button type="button" class="btn btn-primary btn-sm color-DAF7A6" onclick="history.go(-1)">Retour</button>
-		<button type="button" class="btn btn-primary btn-sm color-DAF7A6" onclick="history.go(0)">Rafraîchir</button>
+        <div class="container d-flex justify-content-evenly align-items-center ">
+	        <div class="pr-4">
+			<button id="buttonback" type="button" class="btn btn-primary-outline btn-sm" style = "background-color: transparent" onclick="history.go(-1)"><img alt="" src="img/back.png" ></button>
+			</div>
+			<div class="pl-4">
+			<button id="buttonrefresh" type="button" class="btn btn-primary-outline btn-sm" style = "background-color: transparent" onclick="history.go(0)"><img alt="" src="img/refresh.png" ></button>
+			</div>
 		</div>
 		<!-- Naviguation -->
         <nav id="nav-menu-container">
-            <ul class="nav justify-content-end">
+            <ul class="nav d-flex justify-content-end align-items-center">
                 <li class="nav-item">
                     <a class="nav-link" href="<%=request.getContextPath()%>/ServletConnection"><button type="button" class="btn btn-primary btn-sm">Se connecter</button></a>
                 </li>

@@ -91,3 +91,13 @@ a:focus {
 .nav-menu-container {
 	
 }
+
+#buttonback {
+	
+	background:url(img/back.png);
+}
+
+#buttonrefresh {
+	
+	background:url(img/refresh.png);
+}

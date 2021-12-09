@@ -25,16 +25,8 @@
         <%@ include file="jspf/header.jspf" %>
 
          <!-- Carousel -->
-        <div class="container-fluid">
- 			<div id="carouselHeader" class="carousel slide" data-bs-ride="carousel">
- 				<div class="carousel-indicators">
- 					<button type="button" data-bs-target="#carouselHeader" data-bs-slide-to="0" class="active" current="true" aria-label="First slide"></button>
- 					<button type="button" data-bs-target="#carouselHeader" data-bs-slide-to="1" aria-label="second slide"></button>
- 					<button type="button" data-bs-target="#carouselHeader" data-bs-slide-to="2" aria-label="third slide"></button>
- 				</div>
- 			
- 			
-  			
+         
+         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"> 			
   			<div class="carousel-inner">
     			<div class="carousel-item active">
       				<img class="d-block w-100" src="img/nuage.png" alt="First slide">
@@ -46,39 +38,47 @@
       				<img class="d-block w-100" src="img/logorenard.png" alt="Third slide">
     			</div>
   			</div>
-  			
- 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselHeader" data-slide="prev">
+  			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    			<span class="visually-hidden">Précédent</span>
-  			</button>
-  			<button class="carousel-control-next" type="button" data-bs-target="#carouselHeader" data-slide="next">
+    			<span class="visually-hidden">Precedent</span>
+  			</a>
+  			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
     			<span class="carousel-control-next-icon" aria-hidden="true"></span>
     			<span class="visually-hidden">Suivant</span>
-  			</button>
-  			</div>
+  			</a>
 		</div>
-		
+         
         <!-- Bloc information --> 
-        <div class="container-fluid d-flex justify-content-between" style="background-color: rgb(209,225,184);">
-            <div class="d-inline">
-                <div class='' ><img src='img/100.png' alt=''></div>  
-                    <div>
-                        <H3>Gratuit</H3>
-                    </div>
-            </div>
-                <span class="align-middle">middle</span>
-				<img class="align-middle" src="img/100.png"/>
-            </div>                    
-                <div class='' ><img src='' data-src='' class='' alt=''></div>  
-                    <div>
-                        <H3>Solidaire</H3>
-                    </div>                                
-        
+        <div class=" p-2 mt-2 mb-2 container-fluid d-flex justify-content-between" style="background-color: rgb(209,225,184);">
+            <div class="container-fluid d-flex justify-content-evenly">
+            	<div id="gratuit">
+                	<img class="align-middle" src='img/100.png' alt=''>
+                	<span class="align-middle">Gratuit</span>
+                </div>
+                <div id="ecologique">
+            		<img class="align-middle" src="img/ecologique.png"/>
+                	<span class="align-middle">Ecologique</span>
+                </div>
+                <div id="solidaire">
+                	<img class="align-middle" src="img/ensemble.png"/>
+					<span class="align-middle">Solidaire</span>
+				</div>
+            </div>                                                                 
+        </div>
         
         <!--Bloc Cards -->
-               <div class="card shadow" style="width: 18rem;">
-                  <img class="card-img-top" src="img/Aspirateur.jpg" alt="Card image cap">
-                      <div class="card-body">
+        <div class="text-center">
+        	<img alt="" src="img/new.png">
+        </div>
+        
+        
+        
+        <div class="container pt-5">
+        	<div class="row">
+        		<div class="col">
+        			<div class="card h-100 shadow">
+        				<img class="card-img-top" src="img/hoover.jpg" alt="Card image cap">
+                      	<div class="card-body">
                       	<h5 class="card-title">
                       	Aspirateur
                       	</h5>
@@ -86,14 +86,74 @@
                         Prix : 200 points <br>
                         Fin de l'enchère : 07/01/2022 <br>
                         Vendeur : Jacques</p>
-                     </div>
-            </div>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+        		<div class="col">
+        			<div class="card h-100 shadow">
+        				<img class="card-img-top" src="img/slipsale.jpg" alt="Card image cap">
+                      	<div class="card-body">
+                      	<h5 class="card-title">
+                      	Slip usagé d'Elvis Presley
+                      	</h5>
+                        <p class="card-text">
+                        Prix : 1000 points <br>
+                        Fin de l'enchère : 24/03/2022 <br>
+                        Vendeur : Kévin43</p>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+        		<div class="col">
+        			<div class="card h-100 shadow">
+        				<img class="card-img-top" src="img/ordinateur.jpg" alt="Card image cap">
+                      	<div class="card-body">
+                      	<h5 class="card-title">
+                      	Ordinateur de bureau
+                      	</h5>
+                        <p class="card-text">
+                        Prix : 500 points <br>
+                        Fin de l'enchère : 03/02/2022 <br>
+                        Vendeur : Véronique</p>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+        		<div class="col">
+        			<div class="card h-100 shadow">
+        				<img class="card-img-top" src="img/pneus.jpg" alt="Card image cap">
+                      	<div class="card-body">
+                      	<h5 class="card-title">
+                      	2 pneus michelin
+                      	</h5>
+                        <p class="card-text">
+                        Prix : 150 points <br>
+                        Fin de l'enchère : 07/04/2022 <br>
+                        Vendeur : Marc</p>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+
         <!--Fin Bloc Cards-->
         
-    		<div class="justify-content-between">
-    			<div class=""></div>
+    		<div class="d-flex justify-content-between">
+    			<div id="pixel">
+    			<img class="" src="img/1px.png" alt="">
+    			</div>
     			<a href="<%=request.getContextPath()%>/ServletConnection">
-    			<button type="button" class="btn btn-primary btn-sm">VOIR TOUS LES UNIVERS</button>
+    			<button type="button" class="btn btn-primary btn-sm">VOIR TOUS LES ARTICLES</button>
     			</a>
     		</div>
     		<br/>
