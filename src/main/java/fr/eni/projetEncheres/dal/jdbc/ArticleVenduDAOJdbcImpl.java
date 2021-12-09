@@ -57,13 +57,13 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	}
 
 	@Override
-	public List<ArticleVendu> selectAllArticles() {
+	public List<ArticleVendu> selectAllArticleVendu() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ArticleVendu> selectAllArticlesByUtilisateur(Utilisateur u) {
+	public List<ArticleVendu> selectAllArticleVenduByUtilisateur(Utilisateur u) {
 		// TODO Auto-generated method stub
 		return null;
 	}

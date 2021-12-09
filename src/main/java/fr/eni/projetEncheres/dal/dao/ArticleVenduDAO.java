@@ -5,7 +5,7 @@ import java.util.List;
 
 import fr.eni.projetEncheres.bo.ArticleVendu;
 import fr.eni.projetEncheres.bo.Utilisateur;
-//import fr.eni.eniEncheres.dal.DalException;
+//import fr.eni.eniEncheres.dal.DALException;
 
 /**
  * @author Julian
@@ -15,21 +15,21 @@ public interface ArticleVenduDAO {
 	
 	//insert update delete
 
-	public ArticleVendu selectArticleVenduById(int no_article); //throws  SQLException, DalException;
+	public ArticleVendu selectArticleVenduById(int no_article); //throws  SQLException, DALException;
 	
-	public void insert(ArticleVendu av); //throws  SQLException, DalException;
+	public void insert(ArticleVendu av); //throws  SQLException, DALException;
 	
-	public void update(ArticleVendu av); //throws  SQLException, DalException;
+	public void update(ArticleVendu av); //throws  SQLException, DALException;
 	
-	public void delete(int no_article); //throws  SQLException, DalException;
+	public void delete(int no_article); //throws  SQLException, DALException;
 	
 	//select list
 	
-	public List<ArticleVendu> select(); //throws  SQLException, DalException;
+	public List<ArticleVendu> select(); //throws  SQLException, DALException;
 	
-	public List<ArticleVendu> selectAllArticles(); //throws  SQLException, DalException;
+	public List<ArticleVendu> selectAllArticleVendu(); //throws  SQLException, DALException;
 	
-	public List<ArticleVendu> selectAllArticlesByUtilisateur(Utilisateur u);  //throws  SQLException, DalException;
+	public List<ArticleVendu> selectAllArticleVenduByUtilisateur(Utilisateur u);  //throws  SQLException, DALException;
 	
 
 	
