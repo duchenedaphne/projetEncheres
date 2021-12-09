@@ -16,13 +16,16 @@
 		      <p>logged : ${sessionScope['logged']}</p>
 	
 	 <!-- Formulaire de Connexion -->
-	<form class="box" action="<%=request.getContextPath()%>/ServletConnection" method="post" name="login">
-		<h1 class="box-title">Connexion</h1>
+	 <div class="container  shadow rounded mb-5">
+	<form class="box " action="<%=request.getContextPath()%>/ServletConnection" method="post" name="login">
+		<h1 class="box-title text-center">Connexion</h1>
+		<div class="container-fluid d-flex justify-content-center">
 		<label for="username"></label>
-		<p>Identifiant :</p><input type="text" class="box-input" name="username" placeholder="Identifiant">
+		<span class="align-middle ">Identifiant : </span><input type="text" class="box-input align-middle ml-2 mr-2" name="username" placeholder="Identifiant">
         <label for="password"></label>
-        <p>Mot de passe :</p><input type="password" class="box-input" name="password" placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+        <span class="align-middle">Mot De Passe : </span><input type="password" class="box-input align-middle ml-2 mr-2" name="password" placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                title="Doit contenir au moins 8 caractère, un chiffre, une majuscule et une minuscule" >
+        </div>
         <!-- <label for="logged"></label>
         <input type="hidden" name="logged" value="true"> -->
         <label for="submit"></label>
@@ -36,11 +39,12 @@
             </div>
             <!-- Mot de passe oublié -->
             <a href="">Mot de passe oublié ?</a>
-		<p class="box-register">Vous êtes nouveau ici? <a href="<%=request.getContextPath()%>/ServletInscription">S'inscrire</a></p>
+		<p class="box-register container-fluid d-flex justify-content-center text-center mt-4 pb-4">Vous êtes nouveau ici ? <a href="<%=request.getContextPath()%>/ServletInscription">S'inscrire</a></p>
 		<?php if (! empty($message)) { ?>
   				<p class="errorMessage"><?php echo $message; ?></p>
 		<?php } ?>
 	</form>
+	</div>
 	<!-- Fin de Formulaire de Connexion -->
 	
 	

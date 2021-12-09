@@ -16,36 +16,47 @@
 
 	<%@ include file="jspf/header.jspf" %>
 
+
+	<div class="container  shadow rounded mb-5">
 	<form class="box" action="<%=request.getContextPath()%>/ServletInscription" method="post" name="inscription">
-		<h1 class="box-title">Inscription</h1>
-		<label for="username"></label>
-        <p>Pseudo :</p><input type="text" class="box-input" name="username" placeholder="" required>
-        <label for="nom"></label>
-        <p>Nom :</p><input type="text" class="box-input" name="nom" placeholder="" required>
-        <label for="prenom"></label>
-        <p>Prénom :</p><input type="text" class="box-input" name="prenom" placeholder="" required>
-        <label for="mail"></label>
-        <p>Email :</p><input type="text" class="box-input" name="mail" placeholder="" required>
-        <label for="telephone"></label>
-        <p>Teléphone :</p><input type="text" class="box-input" name="telephone" placeholder="">
-        <label for="rue"></label>
-        <p>Rue :</p><input type="text" class="box-input" name="rue" placeholder="" required>
-        <label for="ville"></label>
-        <p>Ville :</p><input type="text" class="box-input" name="ville" placeholder="" required>
-        <label for="codePostal"></label>
-        <p>Code postal :</p><input type="text" class="box-input" name="codepostal" placeholder="" required>
-        <label for="MotDePasse"></label>
-        <p>Mot de passe :</p><input type="password" class="box-input" name="MotDePasse" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-        <label for="CheckMotDePasse"></label>
-        <p>Confirmation :</p><input type="password" class="box-input" name="CheckMotDePasse" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-        <input type="submit" value="Créer" name="submit" class="box-button">
-        <input type="reset" value="Annuler" name="reset" onclick="location.href='<%=request.getContextPath()%>/ServletAccueil'" class="box-button">
-        
-		<p class="box-register">Vous avez déjà un compte ? <a href="<%=request.getContextPath()%>/ServletConnection">Se Connecter</a></p>
-		<?php if (! empty($message)) { ?>
-  				<p class="errorMessage"><?php echo $message; ?></p>
-		<?php } ?>
+		<h1 class="box-title text-center">Inscription</h1>
+		<div class="container-fluid d-flex justify-content-evenly">
+		<div class="d-flex flex-column">
+			<label for="username"></label>
+	        <span class="align-middle ">Pseudo : </span><input type="text" class="box-input align-middle" name="username" placeholder="" required>
+	        <label for="prenom"></label>
+	        <span class="align-middle ">Prénom : </span><input type="text" class="box-input align-middle" name="prenom" placeholder="" required>
+	        <label for="telephone"></label>
+	        <span class="align-middle ">Teléphone : </span><input type="text" class="box-input align-middle" name="telephone" placeholder="">
+	        <label for="codePostal"></label>
+	        <span class="align-middle ">Code Postal : </span><input type="text" class="box-input align-middle" name="codepostal" placeholder="" required>
+	        <label for="MotDePasse"></label>
+	        <span class="align-middle ">Mot de passe : </span><input type="password" class="box-input align-middle" name="MotDePasse" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+        </div>
+        <div class="d-flex flex-column">
+	        <label for="nom"></label>
+	        <span class="align-middle ">Nom : </span><input type="text" class="box-input align-middle" name="nom" placeholder="" required>
+	        <label for="mail"></label>
+	        <span class="align-middle ">Email : </span><input type="text" class="box-input align-middle" name="mail" placeholder="" required>
+	        <label for="rue"></label>
+	        <span class="align-middle ">Adresse : </span><input type="text" class="box-input align-middle" name="rue" placeholder="" required>
+	        <label for="ville"></label>
+	        <span class="align-middle ">Ville : </span><input type="text" class="box-input align-middle" name="ville" placeholder="" required>
+	        <label for="CheckMotDePasse"></label>
+	        <span class="align-middle ">Confirmation : </span><input type="password" class="box-input align-middle" name="CheckMotDePasse" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+	        </div>
+	   	 	</div>
+	   	 	<div class="container-fluid d-flex justify-content-evenly text-center mt-4 p-3">
+	   	 	<div class="mr-4">
+	        <input type="submit" value="Créer" name="submit" class="box-button">
+	        </div>
+	        <div class="mr-4 ml-4">
+	        <input type="reset" value="Annuler" name="reset" onclick="location.href='<%=request.getContextPath()%>/ServletAccueil'" class="box-button">
+	   		</div>
+	   		</div>
+		<span class="box-register container-fluid d-flex justify-content-center text-center mt-4 pb-4">Vous avez déjà un compte ? <a href="<%=request.getContextPath()%>/ServletConnection">Se Connecter</a></span>
 	</form>
+	</div>
 </body>
 
 <%@ include file="jspf/footer.jspf" %>

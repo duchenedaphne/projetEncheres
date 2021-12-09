@@ -35,7 +35,7 @@
       				<img class="d-block w-100" src="img/CarouselHeader2.png" alt="Second slide">
     			</div>
     			<div class="carousel-item">
-      				<img class="d-block w-100" src="img/logorenard.png" alt="Third slide">
+      				<img class="d-block w-100" src="img/CarouselHeader3.png" alt="Third slide">
     			</div>
   			</div>
   			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -166,7 +166,7 @@
 	<c:if test="${!empty sessionScope.logged}">
 		<%@ include file="jspf/header.jspf" %>
 
-<section class="container haute">
+<section class="container haute shadow">
                 <div class="text-center rounded my-5 haute ">
                     <h1 class="p-3 bordure">Liste des enchères</h1>
                 </div>
@@ -199,14 +199,84 @@
         
         
         <!--Bloc Cards -->
-        <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="img/Aspirateur.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Aspirateur</h5>
-                    <p class="card-text">Prix: 200 points Fin de l'enchère : 07/01/2022 Vendeur : Jacques</p>
-                    <a href="#" class="btn btn-primary">Voir l'article</a>
-                  </div>
+        
+        <div class="container pt-5 pb-5">
+        	<div class="row">
+        		<div class="col">
+        			<div class="card h-100 shadow">
+        				<img class="card-img-top" src="img/hoover.jpg" alt="Card image cap">
+                      	<div class="card-body">
+                      	<h5 class="card-title">
+                      	Aspirateur
+                      	</h5>
+                        <p class="card-text">
+                        Prix : 200 points <br>
+                        Fin de l'enchère : 07/01/2022 <br>
+                        Vendeur : Jacques</p>
+                        <a href="#" class="btn btn-primary">Voir l'article</a>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+        		<div class="col">
+        			<div class="card h-100 shadow">
+        				<img class="card-img-top" src="img/slipsale.jpg" alt="Card image cap">
+                      	<div class="card-body">
+                      	<h5 class="card-title">
+                      	Slip usagé d'Elvis Presley
+                      	</h5>
+                        <p class="card-text">
+                        Prix : 1000 points <br>
+                        Fin de l'enchère : 24/03/2022 <br>
+                        Vendeur : Kévin43</p>
+                        <a href="#" class="btn btn-primary">Voir l'article</a>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+        		<div class="col">
+        			<div class="card h-100 shadow">
+        				<img class="card-img-top" src="img/ordinateur.jpg" alt="Card image cap">
+                      	<div class="card-body">
+                      	<h5 class="card-title">
+                      	Ordinateur de bureau
+                      	</h5>
+                        <p class="card-text">
+                        Prix : 500 points <br>
+                        Fin de l'enchère : 03/02/2022 <br>
+                        Vendeur : Véronique</p>
+                        <a href="#" class="btn btn-primary">Voir l'article</a>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+        		<div class="col">
+        			<div class="card h-100 shadow">
+        				<img class="card-img-top" src="img/pneus.jpg" alt="Card image cap">
+                      	<div class="card-body">
+                      	<h5 class="card-title">
+                      	2 pneus michelin
+                      	</h5>
+                        <p class="card-text">
+                        Prix : 150 points <br>
+                        Fin de l'enchère : 07/04/2022 <br>
+                        Vendeur : Marc</p>
+                        <a href="#" class="btn btn-primary">Voir l'article</a>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+        	</div>
         </div>
+
         <!--Fin Bloc Cards-->
 
 </body>
