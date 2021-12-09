@@ -39,7 +39,7 @@
         <label for="CheckMotDePasse"></label>
         <p>Confirmation :</p><input type="password" class="box-input" name="CheckMotDePasse" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
         <input type="submit" value="Créer" name="submit" class="box-button">
-        <input type="reset" value="Annuler" name="reset" onclick="location.href='Accueil.html'" class="box-button">
+        <input type="reset" value="Annuler" name="reset" onclick="location.href='<%=request.getContextPath()%>/ServletAccueil'" class="box-button">
         
 		<p class="box-register">Vous avez déjà un compte ? <a href="<%=request.getContextPath()%>/ServletConnection">Se Connecter</a></p>
 		<?php if (! empty($message)) { ?>

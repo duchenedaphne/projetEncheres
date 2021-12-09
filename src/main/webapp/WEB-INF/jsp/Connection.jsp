@@ -13,6 +13,7 @@
 
 <body>
 	<%@ include file="jspf/header.jspf" %>
+		      <p>logged : ${sessionScope['logged']}</p>
 	
 	 <!-- Formulaire de Connexion -->
 	<form class="box" action="<%=request.getContextPath()%>/ServletConnection" method="post" name="login">
@@ -20,10 +21,12 @@
 		<label for="username"></label>
 		<p>Identifiant :</p><input type="text" class="box-input" name="username" placeholder="Identifiant">
         <label for="password"></label>
-        <p>Mot de passe :</p><input type="password" class="box-input" name="password" placeholder="Mot de passe">
+        <p>Mot de passe :</p><input type="password" class="box-input" name="password" placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+               title="Doit contenir au moins 8 caractère, un chiffre, une majuscule et une minuscule" >
+        <!-- <label for="logged"></label>
+        <input type="hidden" name="logged" value="true"> -->
         <label for="submit"></label>
-        <input     type="submit" value="Connexion" name="submit" class="box-button" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                title="Doit contenir au moins 8 caractère, un chiffre, une majuscule et une minuscule" required>
+        <input type="submit" value="Connexion" name="submit" class="box-button" >
         
         <!-- Se souvenir de moi -->
             <div>
@@ -33,7 +36,7 @@
             </div>
             <!-- Mot de passe oublié -->
             <a href="">Mot de passe oublié ?</a>
-		<p class="box-register">Vous êtes nouveau ici? <a href="Inscription.html">S'inscrire</a></p>
+		<p class="box-register">Vous êtes nouveau ici? <a href="<%=request.getContextPath()%>/ServletInscription">S'inscrire</a></p>
 		<?php if (! empty($message)) { ?>
   				<p class="errorMessage"><?php echo $message; ?></p>
 		<?php } ?>

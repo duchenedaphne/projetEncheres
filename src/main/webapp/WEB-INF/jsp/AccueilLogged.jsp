@@ -14,6 +14,8 @@
 </head>
 <body>
 
+
+
 <%@ include file="jspf/header.jspf" %>
 
 <section class="container haute">

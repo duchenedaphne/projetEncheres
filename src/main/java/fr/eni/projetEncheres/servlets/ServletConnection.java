@@ -1,6 +1,7 @@
 package fr.eni.projetEncheres.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletConnection
@@ -31,14 +33,19 @@ public class ServletConnection extends HttpServlet {
     
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//boolean logged = (boolean) request.getAttribute("logged");
-		//if (!logged) {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Connection.jsp");
-			rd.forward(request, response);
-		/*}
+		HttpSession session = request.getSession();
+		String logged = (String) session.getAttribute("logged");
+		if (logged != null) {
+		//	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/DejaConnecte.jsp");
+		//	rd.forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/DejaConnecte.jsp").forward(request,response);
+		}
 		else {
-			doPost(request,response);
-		}*/
+		//	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Connection.jsp");
+		//	rd.forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/Connection.jsp").forward(request,response);
+
+		}
 	}
 
 
@@ -46,7 +53,12 @@ public class ServletConnection extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/AccueilLogged.jsp");
+		String logged = "log";
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("logged", logged);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
 		rd.forward(request, response);
 	}
 	
