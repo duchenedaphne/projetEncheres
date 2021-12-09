@@ -11,7 +11,7 @@ import fr.eni.projetEncheres.bo.Utilisateur;
 public interface UtilisateurDAO {
 	
 	// Sélectionner un utilisateur par son identifiant :
-	public Utilisateur selectById(int id) throws BusinessException;
+	public Utilisateur selectById(int no_utilisateur) throws BusinessException;
 		
 	// Sélectionner tous les utilisateurs : 
 	public List<Utilisateur> selectAll() throws BusinessException;
@@ -23,7 +23,7 @@ public interface UtilisateurDAO {
 	public void insert(Utilisateur utilisateur) throws BusinessException;
 		
 	//Supprimer un utilisateur :
-	public void delete(int id) throws BusinessException;
+	public void delete(int no_utilisateur) throws BusinessException;
 
 }
 
