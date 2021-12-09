@@ -26,6 +26,7 @@ import java.util.List;
 
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
+	
 	@Override
 	public ArticleVendu selectArticleVenduById(int no_article) {
 		// TODO Auto-generated method stub

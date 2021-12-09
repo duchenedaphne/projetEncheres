@@ -14,6 +14,7 @@ import fr.eni.projetEncheres.bo.Utilisateur;
 
 public interface EnchereDAO {
 	
+	
 	//insert update delete
 
 	public Enchere selectEnchereById(int no_enchere); //throws  SQLException, DALException;

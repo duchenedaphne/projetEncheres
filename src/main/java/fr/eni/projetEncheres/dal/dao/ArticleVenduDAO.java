@@ -13,6 +13,7 @@ import fr.eni.projetEncheres.bo.Utilisateur;
 
 public interface ArticleVenduDAO {
 	
+	
 	//insert update delete
 
 	public ArticleVendu selectArticleVenduById(int no_article); //throws  SQLException, DALException;

@@ -12,7 +12,6 @@ import fr.eni.projetEncheres.dal.dao.FactoryDAO;
 
 public class CategorieManager {
 
-	
     //---------------------------------------------------------------------
 	//Factory
     private static CategorieDAO dao;

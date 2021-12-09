@@ -12,6 +12,7 @@ import fr.eni.projetEncheres.bo.Categorie;
 
 public interface CategorieDAO {
 
+	
 	//insert update delete // admin 
 	
 	public Categorie selectCategorieById(int no_article); //throws  SQLException, DALException;

@@ -12,7 +12,6 @@ import fr.eni.projetEncheres.dal.dao.FactoryDAO;
 
 public class ArticleVenduManager {
 	
-	
     //---------------------------------------------------------------------
 	//Factory
     private static ArticleVenduDAO dao;
