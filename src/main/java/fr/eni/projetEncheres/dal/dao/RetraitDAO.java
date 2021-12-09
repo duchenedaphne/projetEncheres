@@ -10,7 +10,7 @@ import fr.eni.projetEncheres.bo.Retrait;
  */
 public interface RetraitDAO {
 	
-	public Retrait selectById(int id) throws BusinessException;
+	public Retrait selectById(int no_article) throws BusinessException;
 	
 	public List<Retrait> selectAll() throws BusinessException;
 	
@@ -18,8 +18,8 @@ public interface RetraitDAO {
 	
 	public void update(Retrait data) throws BusinessException;
 	
-	public Retrait delete(int id) throws BusinessException;
+	public void delete(int no_article) throws BusinessException;
 	
-	public Retrait valider(int id) throws BusinessException;
+	public void valider(int no_article) throws BusinessException;
 
 }
