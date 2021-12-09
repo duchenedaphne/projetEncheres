@@ -23,7 +23,7 @@
         %>
 
         <!-- Bloc information -->
-        
+        <img alt="" src="img/nuage.png">
         <div class="banniereinformation">
             <div>
                 <div class='' >    <img src='' data-src='' class='' alt=''><img src='' data-src='' class='' alt=''></div>  
