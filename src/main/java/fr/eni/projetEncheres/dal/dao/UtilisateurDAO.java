@@ -23,7 +23,7 @@ public interface UtilisateurDAO {
 	public void insert(Utilisateur utilisateur) throws BusinessException;
 		
 	//Supprimer un utilisateur :
-	public Utilisateur delete(int id) throws BusinessException;
+	public void delete(int id) throws BusinessException;
 
 }
 
