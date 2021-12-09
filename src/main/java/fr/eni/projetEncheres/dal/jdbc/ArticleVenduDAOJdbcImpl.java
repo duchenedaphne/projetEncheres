@@ -26,6 +26,7 @@ import java.util.List;
 
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
+	
 	@Override
 	public ArticleVendu selectArticleVenduById(int no_article) {
 		// TODO Auto-generated method stub
@@ -57,13 +58,13 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	}
 
 	@Override
-	public List<ArticleVendu> selectAllArticles() {
+	public List<ArticleVendu> selectAllArticleVendu() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ArticleVendu> selectAllArticlesByUtilisateur(Utilisateur u) {
+	public List<ArticleVendu> selectAllArticleVenduByUtilisateur(Utilisateur u) {
 		// TODO Auto-generated method stub
 		return null;
 	}
