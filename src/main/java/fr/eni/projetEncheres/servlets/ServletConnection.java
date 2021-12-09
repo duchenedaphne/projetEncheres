@@ -27,10 +27,20 @@ public class ServletConnection extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Connection.jsp");
-		rd.forward(request, response);
+		//boolean logged = (boolean) request.getAttribute("logged");
+		//if (!logged) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Connection.jsp");
+			rd.forward(request, response);
+		/*}
+		else {
+			doPost(request,response);
+		}*/
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -39,5 +49,5 @@ public class ServletConnection extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/AccueilLogged.jsp");
 		rd.forward(request, response);
 	}
-
+	
 }

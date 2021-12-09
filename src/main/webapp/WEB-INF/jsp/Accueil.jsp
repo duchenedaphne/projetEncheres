@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,25 +16,46 @@
 
 
 <body>
-	<!-- En-tête de la page -->
+    <!-- En-tête de la page -->
         <%@ include file="jspf/header.jspf" %>
+        <%! boolean logged = false;
+        	
+        %>
 
         <!-- Bloc information -->
-        <p>100% GRATUIT  /  Ecologique / Solidaire </p>
+        
+        <div class="banniereinformation">
+            <div>
+                <div class='' >    <img src='' data-src='' class='' alt=''><img src='' data-src='' class='' alt=''></div>  
+                    <div>
+                        <H3>gratuit</H3>
+                    </div>
+            </div>
+                <div>
+                    <div class='' >    <img src='' data-src='' class='' alt=''><img src='' data-src='' class='' alt=''></div>  
+                    <div>
+                        <H3>Ecologique</H3>
+                    </div>
+            </div>                    
+                <div class='' >    <img src='' data-src='' class='' alt=''><img src='' data-src='' class='' alt=''></div>  
+                    <div>
+                        <H3>Solidaire</H3>
+                    </div>                                
+        </div>
         
         <!--Fin Bloc information -->
         
         <p>Carroussel </p>
         <!--Bloc Cards -->
-       		<div class="card" style="width: 18rem;">
-  				<img class="card-img-top" src="img/Aspirateur.jpg" alt="Card image cap">
-  					<div class="card-body">
-    					<p class="card-text">Prix: 200 points Fin de l'enchère : 07/01/2022 Vendeur : Jacques</p>
- 					</div>
-			</div>
-		<!--Fin Bloc Cards-->
-		<a href="Accueilconnected.html" class="btn btn-primary">Voir Toutes les offres partenaires</a>
-    
+               <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="img/Aspirateur.jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">Prix: 200 points Fin de l'enchère : 07/01/2022 Vendeur : Jacques</p>
+                     </div>
+            </div>
+        <!--Fin Bloc Cards-->
+        
+    		<a href="<%=request.getContextPath()%>/ServletConnection" class="btn btn-primary">Voir Toutes les offres partenaires</a>
     </body>
         <!-- Pied de page -->
         <%@ include file="jspf/footer.jspf" %>
