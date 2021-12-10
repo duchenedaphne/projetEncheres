@@ -164,7 +164,7 @@
 	
 	
 	<c:if test="${!empty sessionScope.logged}">
-		<%@ include file="jspf/header.jspf" %>
+		<%@ include file="jspf/headerLogged.jspf" %>
 
 <section class="container haute shadow">
                 <div class="text-center rounded my-5 haute ">
