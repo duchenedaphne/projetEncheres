@@ -11,12 +11,13 @@ import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.Retrait;
 import fr.eni.projetEncheres.dal.CodesResultatDAL;
 import fr.eni.projetEncheres.dal.ConnectionProvider;
+import fr.eni.projetEncheres.dal.dao.DAO;
 import fr.eni.projetEncheres.dal.dao.RetraitDAO;
 
 /**
  * @author Daphné
  */
-public class RetraitDAOJdbcImpl implements RetraitDAO {
+public class RetraitDAOJdbcImpl implements DAO<Retrait>, RetraitDAO {
 
 	private static final String SQL_SELECT_BY_ID = "select no_article, rue, code_postal, ville " 
 			+ " from retraits where no_article = ?";

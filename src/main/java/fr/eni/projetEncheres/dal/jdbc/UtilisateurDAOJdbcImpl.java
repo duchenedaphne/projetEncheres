@@ -11,12 +11,13 @@ import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.Utilisateur;
 import fr.eni.projetEncheres.dal.CodesResultatDAL;
 import fr.eni.projetEncheres.dal.ConnectionProvider;
+import fr.eni.projetEncheres.dal.dao.DAO;
 import fr.eni.projetEncheres.dal.dao.UtilisateurDAO;
 
 /**
  * @author Daphné
  */
-public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
+public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO {
 	
 	private static final String SQL_SELECT_BY_ID = "select no_utilisateur, pseudo, "
 			+ "nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur " 
