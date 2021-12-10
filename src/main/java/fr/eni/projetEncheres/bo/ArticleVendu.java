@@ -14,25 +14,25 @@ public class ArticleVendu {
     private LocalDate date_fin_encheres;
     private int prix_initial;
     private int prix_vente;
-    private int no_utilisateur;
-    private int no_categorie;
+    Utilisateur utilisateur;
+    Categorie categorie;
 
     // Constructeurs : 
     public ArticleVendu() {
 	}
     
 	public ArticleVendu(String nom_article, String description, LocalDate date_debut_encheres,
-			LocalDate date_fin_encheres, int no_utilisateur, int no_categorie) {
+			LocalDate date_fin_encheres, Utilisateur utilisateur, Categorie categorie) {
 		this.nom_article = nom_article;
 		this.description = description;
 		this.date_debut_encheres = date_debut_encheres;
 		this.date_fin_encheres = date_fin_encheres;
-		this.no_utilisateur = no_utilisateur;
-		this.no_categorie = no_categorie;
+		this.utilisateur = utilisateur;
+		this.categorie = categorie;
 	}
 
 	public ArticleVendu(int no_article, String nom_article, String description, LocalDate date_debut_encheres,
-			LocalDate date_fin_encheres, int prix_initial, int prix_vente, int no_utilisateur, int no_categorie) {
+			LocalDate date_fin_encheres, int prix_initial, int prix_vente, Utilisateur utilisateur, Categorie categorie) {
 		super();
 		this.no_article = no_article;
 		this.nom_article = nom_article;
@@ -41,8 +41,8 @@ public class ArticleVendu {
 		this.date_fin_encheres = date_fin_encheres;
 		this.prix_initial = prix_initial;
 		this.prix_vente = prix_vente;
-		this.no_utilisateur = no_utilisateur;
-		this.no_categorie = no_categorie;
+		this.utilisateur = utilisateur;
+		this.categorie = categorie;
 	}
 
 	// Getter / Setter :
@@ -102,20 +102,20 @@ public class ArticleVendu {
 		this.prix_vente = prix_vente;
 	}
 
-	public int getNo_utilisateur() {
-		return no_utilisateur;
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
 
-	public void setNo_utilisateur(int no_utilisateur) {
-		this.no_utilisateur = no_utilisateur;
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 
-	public int getNo_categorie() {
-		return no_categorie;
+	public Categorie getCategorie() {
+		return categorie;
 	}
 
-	public void setNo_categorie(int no_categorie) {
-		this.no_categorie = no_categorie;
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
 	}
 
 	// Override toString : 
@@ -124,7 +124,7 @@ public class ArticleVendu {
 		return "ArticleVendu [no_article=" + no_article + ", nom_article=" + nom_article + ", description="
 				+ description + ", date_debut_encheres=" + date_debut_encheres + ", date_fin_encheres="
 				+ date_fin_encheres + ", prix_initial=" + prix_initial + ", prix_vente=" + prix_vente
-				+ ", no_utilisateur=" + no_utilisateur + ", no_categorie=" + no_categorie + "]";
+				+ ", utilisateur=" + utilisateur + ", categorie=" + categorie + "]";
 	}
     
 }

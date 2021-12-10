@@ -2,15 +2,15 @@ package fr.eni.projetEncheres.bll;
 
 import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.Utilisateur;
+import fr.eni.projetEncheres.dal.dao.DAO;
 import fr.eni.projetEncheres.dal.dao.FactoryDAO;
-import fr.eni.projetEncheres.dal.dao.UtilisateurDAO;
 
 /**
  * @author Daphné
  */
 public class UtilisateurManager {
 	
-	private UtilisateurDAO utilisateurDAO;
+	private DAO<Utilisateur> utilisateurDAO;
 
 	public UtilisateurManager() {
 		this.utilisateurDAO = FactoryDAO.getUtilisateurDAO();
