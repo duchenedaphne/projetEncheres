@@ -32,10 +32,8 @@ public class RetraitDAOJdbcImpl implements DAO<Retrait>, RetraitDAO {
 	@Override
 	public Retrait selectById(int no_article) throws BusinessException {
 
-		Retrait retrait = new Retrait();
+		Retrait retrait = null;
 		try (Connection cnx = ConnectionProvider.getConnection()) {
-			
-			cnx.setAutoCommit(false);
 			PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECT_BY_ID);
 			pstmt.setInt(1, no_article);
 			ResultSet rs = pstmt.executeQuery();
@@ -74,7 +72,7 @@ public class RetraitDAOJdbcImpl implements DAO<Retrait>, RetraitDAO {
 			PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECT_ALL);
 			ResultSet rs = pstmt.executeQuery();
 			
-			Retrait retrait = new Retrait();
+			Retrait retrait = null;
 			
 			while (rs.next()) {
 				if (rs.getInt("no_article") != retrait.getNo_article()) {
@@ -131,7 +129,7 @@ public class RetraitDAOJdbcImpl implements DAO<Retrait>, RetraitDAO {
 				}
 				rs.close();
 				pstmt.close();
-				cnx.close();
+				cnx.commit();
 			} catch (Exception e) {
 				e.printStackTrace();
 				cnx.rollback();

@@ -35,15 +35,13 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 	@Override
 	public Utilisateur selectById(int no_utilisateur) throws BusinessException {
 		
-		Utilisateur utilisateur = new Utilisateur();
+		Utilisateur utilisateur = null;
 		
 		try (Connection cnx = ConnectionProvider.getConnection()) {
-			
-			cnx.setAutoCommit(false);
 			PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECT_BY_ID);
 			pstmt.setInt(1, no_utilisateur);
 			ResultSet rs = pstmt.executeQuery();
-
+			
 			if (rs.next()) {
 					
 					utilisateur = new Utilisateur(rs.getInt("no_utilisateur"),
@@ -86,7 +84,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 			PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECT_ALL);
 			ResultSet rs = pstmt.executeQuery();
 			
-			Utilisateur utilisateur = new Utilisateur();
+			Utilisateur utilisateur = null;
 			
 			while (rs.next()) {
 				if (rs.getInt("no_utilisateur") != utilisateur.getNo_utilisateur()) {
@@ -124,39 +122,6 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 		} 
 		return utilisateurs;
 	}
-
-	@Override
-	public void update(Utilisateur data) throws BusinessException {
-
-		try (Connection cnx = ConnectionProvider.getConnection()) {
-			PreparedStatement pstmt = cnx.prepareStatement(SQL_UPDATE);
-		    pstmt.setString(1, data.getPseudo());
-		    pstmt.setString(2, data.getNom());
-		    pstmt.setString(3, data.getPrenom());
-		    pstmt.setString(4, data.getEmail());
-		    pstmt.setString(5, data.getTelephone());
-		    pstmt.setString(8, data.getRue());
-		    pstmt.setString(9, data.getCode_postal());
-		    pstmt.setString(10, data.getVille());
-		    pstmt.setString(11, data.getMot_de_passe());
-		    pstmt.setInt(12, data.getCredit());
-		    pstmt.setBoolean(13, data.isAdministrateur());
-		    
-		    pstmt.executeUpdate();
-		    try {
-		        if (pstmt != null){
-		            pstmt.close();
-		        }
-		        if(cnx !=null){
-		            cnx.close();
-		        }
-		    } catch (SQLException e) {
-		        e.printStackTrace();
-		    }
-		} catch (SQLException e) {
-		    throw new BusinessException();
-		} 
-	}
 	
 	@Override
 	public void insert(Utilisateur utilisateur) throws BusinessException {
@@ -192,7 +157,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 				}
 				rs.close();
 				pstmt.close();
-				cnx.close();
+				cnx.commit();
 			} catch (Exception e) {
 				e.printStackTrace();
 				cnx.rollback();
@@ -204,6 +169,39 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 			businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
 			throw businessException;
 		}	
+	}
+
+	@Override
+	public void update(Utilisateur data) throws BusinessException {
+
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pstmt = cnx.prepareStatement(SQL_UPDATE);
+		    pstmt.setString(1, data.getPseudo());
+		    pstmt.setString(2, data.getNom());
+		    pstmt.setString(3, data.getPrenom());
+		    pstmt.setString(4, data.getEmail());
+		    pstmt.setString(5, data.getTelephone());
+		    pstmt.setString(8, data.getRue());
+		    pstmt.setString(9, data.getCode_postal());
+		    pstmt.setString(10, data.getVille());
+		    pstmt.setString(11, data.getMot_de_passe());
+		    pstmt.setInt(12, data.getCredit());
+		    pstmt.setBoolean(13, data.isAdministrateur());
+		    
+		    pstmt.executeUpdate();
+		    try {
+		        if (pstmt != null){
+		            pstmt.close();
+		        }
+		        if(cnx !=null){
+		            cnx.close();
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		} catch (SQLException e) {
+		    throw new BusinessException();
+		} 
 	}
 
 	@Override
