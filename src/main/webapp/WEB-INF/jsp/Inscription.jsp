@@ -28,7 +28,7 @@
 		        <input type="text" class="box-input align-middle" name="prenom" placeholder="" required>
 		        <label for="telephone">Teléphone : </label>
 		        <input type="text" class="box-input align-middle" name="telephone" placeholder="">
-		        <label for="codePostal">Code Postal : </label>
+		        <label for="codepostal">Code Postal : </label>
 		        <input type="text" class="box-input align-middle" name="codepostal" placeholder="" required>
 		        <label for="MotDePasse">Mot de passe : </label>
 		        <input type="password" class="box-input align-middle" name="MotDePasse" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
