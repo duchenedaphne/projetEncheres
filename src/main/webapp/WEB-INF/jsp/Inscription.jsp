@@ -17,7 +17,7 @@
 	<%@ include file="jspf/header.jspf" %>
 
 
-	<div class="container  shadow rounded mb-5">
+	<div class="container  shadow rounded mb-5" style="background-color: #eeeeee;">
 	<form class="box" action="<%=request.getContextPath()%>/ServletInscription" method="post" name="inscription">
 		<h1 class="box-title text-center">Inscription</h1>
 		<div class="container-fluid d-flex justify-content-evenly">

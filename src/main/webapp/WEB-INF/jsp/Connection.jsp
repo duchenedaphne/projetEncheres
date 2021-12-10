@@ -16,34 +16,40 @@
 		      <p>logged : ${sessionScope['logged']}</p>
 	
 	 <!-- Formulaire de Connexion -->
-	 <div class="container  shadow rounded mb-5">
+	 <div class="container  shadow rounded mb-5 w-25" style="background-color: #eeeeee;">
 	<form class="box " action="<%=request.getContextPath()%>/ServletConnection" method="post" name="login">
 		<h1 class="box-title text-center">Connexion</h1>
-		<div class="container-fluid d-flex justify-content-center">
+		<div class="container-fluid d-flex justify-content-center text-center">
 		<label for="username"></label>
-		<span class="align-middle ">Identifiant : </span><input type="text" class="box-input align-middle ml-2 mr-2" name="username" placeholder="Identifiant">
-        <label for="password"></label>
-        <span class="align-middle">Mot De Passe : </span><input type="password" class="box-input align-middle ml-2 mr-2" name="password" placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+		<div class="d-flex flex-column justify-content-start" >
+		<span class="mb-4">Identifiant : </span>
+		<label for="password"></label>
+        <span class="">Mot De Passe : </span>
+        </div>
+        <div class="d-flex flex-column " >
+        <input type="text" class="box-input align-middle mb-4 " name="username" placeholder="Identifiant">
+        <input type="password" class="box-input align-middle " name="password" placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                title="Doit contenir au moins 8 caractère, un chiffre, une majuscule et une minuscule" >
+        </div>
         </div>
         <!-- <label for="logged"></label>
         <input type="hidden" name="logged" value="true"> -->
+        <div class="container-fluid d-flex justify-content-center text-center mt-4 p-3">
         <label for="submit"></label>
         <input type="submit" value="Connexion" name="submit" class="box-button" >
-        
-        <!-- Se souvenir de moi -->
-            <div>
+        <div class="row">
+        <div class="d-line">
+        <input type="checkbox" id="rememberme" name="rememberme" value="1">
+        <label for="rememberme">Se souvenir de moi</label>
+        </div>
+        <a href="">Mot de passe oublié ?</a>
+        </div>
+        </div>
+        <p class="box-register container-fluid d-flex justify-content-center text-center mt-4 pb-4">Vous êtes nouveau ici ? <a href="<%=request.getContextPath()%>/ServletInscription">S'inscrire</a></p>
+
         <!-- Ceci est la case à cocher et nous allons chercher pour notre cookie "remembermeu" si on le trouve alors on va cocher la case avec "checked"-->
-                <input type="checkbox" id="rememberme" name="rememberme" value="1">
-                <label for="rememberme">Se souvenir de moi</label>
-            </div>
-            <!-- Mot de passe oublié -->
-            <a href="">Mot de passe oublié ?</a>
-		<p class="box-register container-fluid d-flex justify-content-center text-center mt-4 pb-4">Vous êtes nouveau ici ? <a href="<%=request.getContextPath()%>/ServletInscription">S'inscrire</a></p>
-		<?php if (! empty($message)) { ?>
-  				<p class="errorMessage"><?php echo $message; ?></p>
-		<?php } ?>
-	</form>
+
+           	</form>
 	</div>
 	<!-- Fin de Formulaire de Connexion -->
 	
