@@ -1,9 +1,13 @@
 package fr.eni.projetEncheres.bo;
 
+import java.io.Serializable;
+
 /**
  * @author Daphné 
  */
-public class Categorie {
+public class Categorie implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	// Attributs :
 	private int no_categorie;
 	private String libelle;

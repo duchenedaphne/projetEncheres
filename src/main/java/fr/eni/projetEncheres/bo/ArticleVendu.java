@@ -1,11 +1,14 @@
 package fr.eni.projetEncheres.bo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  * @author Daphné 
  */
-public class ArticleVendu {
+public class ArticleVendu implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	// Attributs : 
 	private int no_article;
     private String nom_article;

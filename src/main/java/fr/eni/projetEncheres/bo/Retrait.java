@@ -1,9 +1,13 @@
 package fr.eni.projetEncheres.bo;
 
+import java.io.Serializable;
+
 /**
  * @author Daphné 
  */
-public class Retrait {
+public class Retrait implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	// Attributs :
 	private int no_article;
     private String rue;

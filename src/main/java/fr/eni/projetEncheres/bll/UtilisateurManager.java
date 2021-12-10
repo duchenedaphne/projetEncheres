@@ -61,7 +61,7 @@ public class UtilisateurManager {
 
 	
 	private void validerPassword(String password, String passwordCheck, BusinessException be) {
-		if (password != passwordCheck) {
+		if (!password.equals(passwordCheck)) {
 			be.ajouterErreur(CodesResultatBLL.MISMATCH_PASSWORD);
 		}
 	}
