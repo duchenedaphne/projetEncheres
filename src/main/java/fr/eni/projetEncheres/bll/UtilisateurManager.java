@@ -16,7 +16,7 @@ public class UtilisateurManager {
 		this.utilisateurDAO = FactoryDAO.getUtilisateurDAO();
 	}
 	
-	public Utilisateur ajouterUtilisateur	(String pseudo, String nom, String prenom, String mail, String telephone, String rue, String codepostal, 
+	public Utilisateur ajouterUtilisateur(String pseudo, String nom, String prenom, String mail, String telephone, String rue, String codepostal, 
 									 String ville, String password, String passwordCheck, int credit, boolean admin) throws BusinessException {
 		
 		BusinessException be = new BusinessException();

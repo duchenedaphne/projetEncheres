@@ -11,7 +11,7 @@ public abstract class LecteurMessage {
 
 	static {
 		try {
-			rb = ResourceBundle.getBundle("fr.eni.javaee.suividesrepas.messages.messages_erreur");
+			rb = ResourceBundle.getBundle("fr.eni.projetEncheres.messages.messages_erreur");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bll.UtilisateurManager;
@@ -93,16 +94,26 @@ public class ServletInscription extends HttpServlet {
 			rd.forward(request, response);
 		} else {
 			UtilisateurManager utilisateurManager = new UtilisateurManager();
+			HttpSession session = request.getSession();
+			response.getWriter().append(pseudo).append(nom);
+			
 			try {
 				utilisateurManager.ajouterUtilisateur(pseudo, nom, prenom, mail, telephone, adresse, codepostal, ville, password, passwordcheck, 0, false);
+			//	String logged = "log";
+			//	session.setAttribute("logged", logged);
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
+				rd.forward(request, response);
+				
 			} catch (BusinessException e) {
 				e.printStackTrace();
+				request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/DejaConnecte.jsp");
+				rd.forward(request, response);
 			}	
 		}
 		
 		
-	//	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
-	//	rd.forward(request, response);
+		
 	
 
 	}
