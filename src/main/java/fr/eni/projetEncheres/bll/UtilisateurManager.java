@@ -59,6 +59,13 @@ public class UtilisateurManager {
 		utilisateurDAO.delete(no_utilisateur);
 	}
 
+	public int logUtilisateur(String id, String password) throws BusinessException {
+		int no_utilisateur = utilisateurDAO.selectLog(id, password);
+		if (no_utilisateur == -1) {
+			no_utilisateur = utilisateurDAO.selectMail(id, password);
+		}
+		return no_utilisateur;
+	}
 	
 	private void validerPassword(String password, String passwordCheck, BusinessException be) {
 		if (!password.equals(passwordCheck)) {
