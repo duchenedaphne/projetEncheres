@@ -31,6 +31,8 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 	private static final String SQL_INSERT = "insert into utilisateurs(pseudo,nom,prenom,email,telephone,"
 			+ "rue,code_postal,ville,mot_de_passe,credit,administrateur) values(?,?,?,?,?,?,?,?,?,?,?)";
 	private static final String SQL_DELETE = "delete from utilisateurs where no_utilisateur = ?";
+	private static final String SQL_SELECTID = "select no_utilisateur from utilisateurs WHERE pseudo = ? and mot_de_passe = ?";
+	private static final String SQL_SELECTMAIL = "select no_utilisateur from utilisateurs WHERE email = ? and mot_de_passe = ?";
 
 	@Override
 	public Utilisateur selectById(int no_utilisateur) throws BusinessException {
@@ -224,7 +226,55 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 		    throw new BusinessException();
 		} 
 	}
+	
+	// Vérifie dans la BDD l'existence de l'utilisateur qui rentre ses logins. S'il existe, renvoie le no_utiliateur. Sinon, renvoie -1
+	@Override
+	public int selectLog(String id, String password) throws BusinessException {
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECTID);
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+			
+			ResultSet rs = pstmt.executeQuery();
+			int id_user;
+			
+			if (rs.next()) {
+				id_user = rs.getInt("no_utilisateur");
+				
+			} else {
+				id_user = -1;
+			}
+			return id_user;
+		} catch (SQLException e) {
+			throw new BusinessException();
+		}
+			
+	}
 
+
+	// Vérifie dans la BDD l'existence de l'utilisateur qui rentre ses logins. S'il existe, renvoie le no_utiliateur. Sinon, renvoie -1
+		@Override
+		public int selectMail(String id, String password) throws BusinessException {
+			try (Connection cnx = ConnectionProvider.getConnection()) {
+				PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECTMAIL);
+				pstmt.setString(1, id);
+				pstmt.setString(2, password);
+				
+				ResultSet rs = pstmt.executeQuery();
+				int id_user;
+				
+				if (rs.next()) {
+					id_user = rs.getInt("no_utilisateur");
+					
+				} else {
+					id_user = -1;
+				}
+				return id_user;
+			} catch (SQLException e) {
+				throw new BusinessException();
+			}
+				
+		}
 }
 
 

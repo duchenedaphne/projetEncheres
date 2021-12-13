@@ -95,7 +95,7 @@ public class ServletInscription extends HttpServlet {
 		} else {
 			UtilisateurManager utilisateurManager = new UtilisateurManager();
 			HttpSession session = request.getSession();
-			response.getWriter().append(pseudo).append(nom);
+		//	response.getWriter().append(pseudo).append(nom);
 			
 			try {
 				utilisateurManager.ajouterUtilisateur(pseudo, nom, prenom, mail, telephone, adresse, codepostal, ville, password, passwordcheck, 0, false);

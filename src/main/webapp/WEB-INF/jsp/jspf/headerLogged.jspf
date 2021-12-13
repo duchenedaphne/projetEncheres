@@ -9,6 +9,7 @@
 		
 		<nav id="nav-menu-container">
 		<ul class="nav d-flex justify-content-end align-items-center">
+			<li class="nav-item"><p>Bienvenue ${sessionScope['prenom']} ${sessionScope['nom'] }</p>
   			<li class="nav-item">
    				<a class="nav-link active" href="<%=request.getContextPath()%>/ServletMesEnchères">Enchères</a>
   			</li>

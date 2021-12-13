@@ -23,7 +23,6 @@
             <img class="align-self-end" src='img/nuage3.svg' alt='' width="150px">
             </div>                                                            
         </div>                                                                
-        </div>
 		      <p>logged : ${sessionScope['logged']}</p>
 	
 	 <!-- Formulaire de Connexion -->
@@ -31,16 +30,14 @@
 	<form class="box " action="<%=request.getContextPath()%>/ServletConnection" method="post" name="login">
 		<h1 class="box-title text-center">Connexion</h1>
 		<div class="container-fluid d-flex justify-content-center text-center">
-		<label for="username"></label>
 		<div class="d-flex flex-column justify-content-start" >
-		<span class="mb-4">Identifiant : </span>
-		<label for="password"></label>
-        <span class="">Mot De Passe : </span>
+		<label class="mb-4" for="identifiant">Identifiant : </label>
+		<label class="" for="loginpassword">Mot De Passe : </label>
         </div>
         <div class="d-flex flex-column " >
-        <input type="text" class="box-input align-middle mb-4 " name="username" placeholder="Identifiant">
-        <input type="password" class="box-input align-middle " name="password" placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-               title="Doit contenir au moins 8 caractère, un chiffre, une majuscule et une minuscule" >
+        <input type="text" class="box-input align-middle mb-4 " name="identifiant" placeholder="Identifiant" required >
+        <input type="password" class="box-input align-middle " name="loginpassword" placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+               title="Doit contenir au moins 8 caractère, un chiffre, une majuscule et une minuscule" required >
         </div>
         </div>
         <!-- <label for="logged"></label>

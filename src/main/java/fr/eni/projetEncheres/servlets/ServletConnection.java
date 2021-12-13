@@ -1,6 +1,8 @@
 package fr.eni.projetEncheres.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import fr.eni.projetEncheres.BusinessException;
+import fr.eni.projetEncheres.bll.UtilisateurManager;
+import fr.eni.projetEncheres.bo.Utilisateur;
 
 /**
  * Servlet implementation class ServletConnection
@@ -52,10 +58,44 @@ public class ServletConnection extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String logged = "log";
-		
+		String id = null;
+		String password = null;
+		int no_user;
+		List<Integer> listeCodesErreur = new ArrayList<>();
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		session.setAttribute("logged", logged);
+		
+		UtilisateurManager utilisateurManager = new UtilisateurManager();
+		id = request.getParameter("identifiant");
+		password = request.getParameter("loginpassword");
+		
+		try {
+			no_user = utilisateurManager.logUtilisateur(id, password);
+			if (no_user == -1) {
+				
+			} else {
+				Utilisateur user = utilisateurManager.afficherUtilisateur(no_user);
+				session.setAttribute("username", user.getPseudo());
+				session.setAttribute("nom", user.getNom());
+				session.setAttribute("prenom", user.getPrenom());
+				session.setAttribute("telephone", user.getTelephone());
+				session.setAttribute("mail", user.getEmail());
+				session.setAttribute("rue", user.getRue());
+				session.setAttribute("codepostal", user.getCode_postal());
+				session.setAttribute("ville", user.getVille());
+				session.setAttribute("MotDePasse", user.getMot_de_passe());
+				
+				String logged = "log";
+				session.setAttribute("logged", logged);
+			}
+		} catch (BusinessException e) {
+			e.printStackTrace();
+			request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/DejaConnecte.jsp");
+			rd.forward(request, response);
+		}
+		
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
 		rd.forward(request, response);
