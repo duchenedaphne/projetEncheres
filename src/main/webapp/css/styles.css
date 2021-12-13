@@ -5,92 +5,14 @@
     src: url("https://fonts.googleapis.com/css?family=Gentium+Basic&display=swap");
 }
 
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 
-body {
-    background: #fff;
-    color: #666666;
-
-}
-
-
-
-
-a {
-    color: #17a2b8;
-    transition: 0.5s;
-
-}
-
-a:hover,
-a:active,
-a:focus {
-    color: #696969;
-    outline: none;
-    text-decoration: none;
-}
-
-
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
-
-#header {
-
-    height: 100px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    transition: all 0.5s;
-    z-index: 994;
-    background: #f8f9fa;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-}
-
-#header.header-scrolled {
-    background: #f8f9fa;
-
-    height: 92px;
-    transition: all 0.5s;
-}
-
-#header #logo {
-    float: left;
-}
-
-#header #logo h1 {
-    font-size: 34px;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
-
-#header #logo h1 a,
-#header #logo h1 a:hover {
-    color: #fff;
-    padding-left: 10px;
-    border-left: 4px solid #17a2b8;
-}
-
-#header #logo img {
-    padding: 0;
-    margin: 0;
-}
-
-.modal-backdrop {
-
-    z-index: 995;
-}
-
-.nav-menu-container {
+.body {
+	background-color : #0000
 	
 }
+
+	
+
 
 #buttonback {
 	
@@ -101,3 +23,26 @@ a:focus {
 	
 	background:url(img/refresh.png);
 }
+
+
+
+#TexteNuage {
+	
+	text-shadow:0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);color:#fff;
+background-color:#2E8ECE;
+	
+}
+
+
+ 

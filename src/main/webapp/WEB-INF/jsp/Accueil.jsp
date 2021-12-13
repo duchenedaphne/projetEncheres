@@ -9,7 +9,7 @@
 <link rel="icon" href="img/logotitlee4.png">
 <title>ENI-Encheres</title>
 <!-- CSS Styles -->
-<link href="css/styles.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}.../css/styles.css" rel="stylesheet">
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <!-- Bootstrap JS -->
@@ -24,26 +24,27 @@
 	    <!-- Header -->
         <%@ include file="jspf/header.jspf" %>
 	
-	   <div class=" p-2 mb-3 d-flex" style="height: 80px; background-color: rgb(189,221,227);" >
-            <span class="container-fluid d-flex pull-left align-self-center text-white " style=" font-weight-bold">Accueil</span> 
-            <div class="d-flex border p-0">
+	   <div class=" p-2 mb-2 d-flex" style="height: 80px; background-color: rgb(189,221,227);" >
+            <span class="container-fluid d-flex pull-left align-self-center text-white  w-25" style=" font-weight-bold">
+            Accueil</span> 
+            <div class="d-flex justify-content-between w-100 ">
             <img class="align-self-end" src='img/nuage1.svg' alt='' width="200px">
             <img class="align-self-end" src='img/nuage2.svg' alt='' width="200px">
             <img class="align-self-end" src='img/nuage3.svg' alt='' width="150px">
             </div>                                                            
         </div>
          <!-- Carousel -->
-         
-         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"> 			
+         <div style=" background-color: rgb(189,221,227);" >
+         <div id="carouselExampleIndicators" class="d-flex carousel slide shadow w-50" data-bs-ride="carousel" style=" margin: 0 auto"> 			
   			<div class="carousel-inner">
     			<div class="carousel-item active">
-      				<img class="d-block w-100" src="img/nuage.png" alt="First slide">
+      				<img class="d-block w-100" style="height: 535px;" src="img/nuage.png" alt="First slide">
     			</div>
     			<div class="carousel-item">
-      				<img class="d-block w-100" src="img/CarouselHeader2.png" alt="Second slide">
+      				<img class="d-block w-100" style="height: 535px;" src="img/CarouselHeader2.png" alt="Second slide">
     			</div>
     			<div class="carousel-item">
-      				<img class="d-block w-100" src="img/CarouselHeader3.png" alt="Third slide">
+      				<img class="d-block w-100 " style="height: 535px;" src="img/CarouselHeader3.png" alt="Third slide">
     			</div>
   			</div>
   			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -55,7 +56,7 @@
     			<span class="visually-hidden">Suivant</span>
   			</a>
 		</div>
-         
+        </div> 
         <!-- Bloc information --> 
         <div class=" p-2 mt-2 mb-2 container-fluid d-flex justify-content-between" style="background-color: rgb(209,225,184);">
             <div class="container-fluid d-flex justify-content-evenly">
@@ -173,10 +174,14 @@
 	
 	<c:if test="${!empty sessionScope.logged}">
 		<%@ include file="jspf/headerLogged.jspf" %>
-		 <div class=" h p-2 mb-3 container-fluid d-flex justify-content-between" style="height: 80px; background-color: rgb(189,221,227);" >
-            <div class="container-fluid d-flex pull-left align-items-center">
-			Accueil
-            </div>                                                                 
+	   <div class=" p-2 mb-3 d-flex" style="height: 80px; background-color: rgb(189,221,227);" >
+            <span id="TexteNuage" class="container-fluid d-flex pull-left align-self-center text-white  w-25" style=" font-weight-bold">
+            Accueil</span> 
+            <div class="d-flex justify-content-between w-100 ">
+            <img class="align-self-end" src='img/nuage1.svg' alt='' width="200px">
+            <img class="align-self-end" src='img/nuage2.svg' alt='' width="200px">
+            <img class="align-self-end" src='img/nuage3.svg' alt='' width="150px">
+            </div>                                                            
         </div>
 
 <section class="container haute shadow">
