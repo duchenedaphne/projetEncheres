@@ -1,11 +1,11 @@
 <header >
 	<!-- Logo -->
-	<div class="container-fluid d-flex justify-content-between shadow p-3 mb-5" style="background-color: #eeeeee;">
-		<div id="logo" class="pull-left">
-	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logoee4.svg" alt="logo" title="" width="50" /></a>
+	<div class="container-fluid d-flex justify-content-between shadow p-3" style=" height: 120px; background-color: #eeeeee;">
+		<div id="logo" class="pull-left align-items-center">
+	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logoee4.svg" alt="logo" title="" width="100px" /></a>              
         </div>
 		<!-- Naviguation -->
-        <nav id="nav-menu-container">
+        <nav id="nav-menu-container align-items-center">
             <ul class="nav d-flex justify-content-end align-items-center">
                 <li class="nav-item">
                     <a class="nav-link" href="<%=request.getContextPath()%>/ServletConnection"><button type="button" class="btn btn-primary btn-sm">Se connecter</button></a>
@@ -16,4 +16,5 @@
             </ul>
         </nav>
 	</div>
+
 </header>

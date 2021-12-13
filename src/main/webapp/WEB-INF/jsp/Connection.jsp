@@ -12,7 +12,14 @@
 
 
 <body>
+	 <!-- Header -->
 	<%@ include file="jspf/header.jspf" %>
+		
+	   <div class=" h p-2 mb-3 container-fluid d-flex justify-content-between" style="height: 80px; background-color: rgb(189,221,227);" >
+            <div class="container-fluid d-flex pull-left align-items-center">
+			Connexion
+            </div>                                                                 
+        </div>
 		      <p>logged : ${sessionScope['logged']}</p>
 	
 	 <!-- Formulaire de Connexion -->

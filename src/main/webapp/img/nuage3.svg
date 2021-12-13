@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg11588" width="174" height="77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <defs id="defs11590">
+  <clipPath id="clipPath1100">
+   <path id="path1102" d="m4397.9 10186h497.24v-269.91h-497.24v269.91z"/>
+  </clipPath>
+ </defs>
+ <metadata id="metadata11593">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="layer1" transform="translate(22.367 -629.93)">
+  <g id="g1092" transform="matrix(.26874 0 0 -.26852 149.63 706.28)">
+   <path id="path1094" d="m0 0-121.51 45.005s23.094 23 20.733 70.663c-2.361 47.662-100.59 20.543-100.59 20.543s-35.911 166.42-122.1 137.26c-75.828-25.657-79.324-94.842-79.069-111.11-1.05 16.852-10.119 88.361-88.52 57.371-84.293-33.318-43.01-111.43-38.166-120.29-1.78 2.963-9.742 13.517-32.704 12.739-76.892-2.607-20.108-75.83-20.108-75.83l-50.556-36.349h632.59z" fill="#fff"/>
+  </g>
+  <g id="g1096" transform="matrix(.26874 0 0 -.26852 -1199.2 3369.7)">
+   <g id="g1104">
+    <g id="g1106" clip-path="url(#clipPath1100)" opacity=".3">
+     <g id="g1108" transform="translate(4828.2 10034)">
+      <path id="path1110" d="M 0,0 C 0,0 39.47,10.894 66.988,5.69 52.508,20.247 17.55,16.489 -3.202,12.631 -1.044,4.833 0,0 0,0" fill="#a4dbde"/>
+     </g>
+     <g id="g1112" transform="translate(4516.1 10010)">
+      <path id="path1114" d="m0 0c-4.477 8.191-42.639 80.397 35.28 111.2 17.162 6.784 30.726 8.248 41.453 6.334-12.065 10.203-31.037 14.489-60.894 2.687-72.977-28.846-44.131-94.012-36.501-108.89 13.963-1.923 19.294-9.049 20.662-11.328" fill="#a4dbde"/>
+     </g>
+     <g id="g1116" transform="translate(4429.9 9916.3)">
+      <path id="path1118" d="m0 0 34.187 24.58s-52.491 67.686 18.587 70.096c3.337 0.114 6.331-0.033 9.014-0.37-3.424 3.879-11.528 9.965-28.455 9.389-71.078-2.409-18.587-70.094-18.587-70.094l-46.734-33.601h31.988z" fill="#a4dbde"/>
+     </g>
+     <g id="g1120" transform="translate(4644.4 10071)">
+      <path id="path1122" d="m 0,0 c -0.236,15.033 2.996,78.987 73.09,102.704 10.913,3.692 20.952,3.986 30.155,1.754 -13.967,9.774 -30.437,13.749 -49.596,7.267 C 10.807,97.229 -7.055,67.703 -14.416,43.502 -2.872,28.578 -0.49,7.858 0,0" fill="#a4dbde"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

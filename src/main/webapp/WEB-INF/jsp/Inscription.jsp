@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Title -->
 <link rel="icon" href="img/logotitlee4.png">
-<title>Inscription</title>
+<title>ENI-Encheres</title>
 <!-- CSS Styles -->
 <link href="css/styles.css" rel="stylesheet">
 <!-- Bootstrap CSS -->
@@ -14,7 +14,13 @@
 </head>
 <body>
 
+	<!-- Header -->
 	<%@ include file="jspf/header.jspf" %>
+	<div class=" h p-2 mb-3 container-fluid d-flex justify-content-between" style="height: 80px; background-color: rgb(189,221,227);" >
+            <div class="container-fluid d-flex pull-left align-items-center">
+			Inscription
+            </div>                                                                 
+        </div>
 
 
 	<div class="container  shadow rounded mb-5" style="background-color: #eeeeee;">

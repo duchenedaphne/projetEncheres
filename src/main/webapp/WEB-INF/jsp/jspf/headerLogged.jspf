@@ -1,8 +1,8 @@
 <header >
 	<!-- Logo -->
-	<div class="container-fluid d-flex justify-content-between shadow p-3 mb-5" style="background-color: #eeeeee;">
+	<div class="container-fluid d-flex justify-content-between shadow p-3" style="background-color: #eeeeee;">
 		<div id="logo" class="pull-left">
-	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logo.svg" alt="logo" title="" width="120px" /></a>
+	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logoee4.svg" alt="logo" title="" width="120px" /></a>
         </div>
          <!-- Retour en arrière --><!-- Rafraîchir -->
 
@@ -11,13 +11,13 @@
 		<nav id="nav-menu-container">
 		<ul class="nav d-flex justify-content-end align-items-center">
   			<li class="nav-item">
-   				<a class="nav-link active" href="#">Enchères</a>
+   				<a class="nav-link active" href="<%=request.getContextPath()%>/ServletMesEnchères">Enchères</a>
   			</li>
   			<li class="nav-item">
-    			<a class="nav-link" href="#">Vendre un article</a>
+    			<a class="nav-link" href="<%=request.getContextPath()%>/ServletNouvelleVente">Vendre un article</a>
   			</li>
   			<li class="nav-item">
-    			<a class="nav-link" href="#">Mon Profil</a>
+    			<a class="nav-link" href="<%=request.getContextPath()%>/ServletMonProfil">Mon Profil</a>
  			</li>
   			<li class="nav-item">
     			<form action="<%=request.getContextPath()%>/ServletDeconnection" method="post" name="unlog">
