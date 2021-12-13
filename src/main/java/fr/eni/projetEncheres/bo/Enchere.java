@@ -1,7 +1,7 @@
 package fr.eni.projetEncheres.bo;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 
 /**
  * @author Daphné 
@@ -13,14 +13,14 @@ public class Enchere implements Serializable {
 	private int no_enchere; //@Julian
 	Utilisateur utilisateur;
     private int no_article;
-    private LocalDate date_enchere;
+    private Date date_enchere;
     private int montant_enchere;
     
     // Constructeur :
     public Enchere() {
     }
     
-	public Enchere(Utilisateur utilisateur, int no_article, LocalDate date_enchere, int montant_enchere) {
+	public Enchere(Utilisateur utilisateur, int no_article, Date date_enchere, int montant_enchere) {
 		super();
 		this.utilisateur = utilisateur;
 		this.no_article = no_article;
@@ -54,11 +54,11 @@ public class Enchere implements Serializable {
 		this.no_article = no_article;
 	}
 
-	public LocalDate getDate_enchere() {
+	public Date getDate_enchere() {
 		return date_enchere;
 	}
 
-	public void setDate_enchere(LocalDate date_enchere) {
+	public void setDate_enchere(Date date_enchere) {
 		this.date_enchere = date_enchere;
 	}
 

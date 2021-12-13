@@ -1,5 +1,8 @@
 package fr.eni.projetEncheres.bll;
 
+import java.sql.SQLException;
+
+import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.Categorie;
 import fr.eni.projetEncheres.dal.dao.CategorieDAO;
 import fr.eni.projetEncheres.dal.dao.FactoryDAO;
@@ -22,7 +25,7 @@ public class CategorieManager {
     
     //---------------------------------------------------------------------
 	//CREATE
-    public void createCategorie(Categorie categorie){
+    public void createCategorie(Categorie categorie)throws SQLException, BusinessException{
 
             dao.insert(categorie);
 
@@ -30,7 +33,7 @@ public class CategorieManager {
     
     //---------------------------------------------------------------------
     //READ
-    public Categorie getCategorieById(int no_categorie){
+    public Categorie getCategorieById(int no_categorie)throws SQLException, BusinessException{
     	
     	
     		Categorie categorie = 
@@ -40,14 +43,14 @@ public class CategorieManager {
     
     //--------------------------------------------------------------------- 
     //UPDATE
-    public void updateCategorie(Categorie categorieUpdate){
+    public void updateCategorie(Categorie categorieUpdate)throws SQLException, BusinessException{
 
     		dao.update(categorieUpdate);
     }
     
     //--------------------------------------------------------------------- 
     //DELETE
-    public void deleteCategorie(int categorieDelete){
+    public void deleteCategorie(int categorieDelete)throws SQLException, BusinessException{
     	
         dao.delete(categorieDelete);
     }

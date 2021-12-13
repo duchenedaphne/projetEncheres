@@ -1,5 +1,8 @@
 package fr.eni.projetEncheres.bll;
 
+import java.sql.SQLException;
+
+import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.ArticleVendu;
 import fr.eni.projetEncheres.dal.dao.ArticleVenduDAO;
 import fr.eni.projetEncheres.dal.dao.FactoryDAO;
@@ -22,7 +25,7 @@ public class ArticleVenduManager {
     
     //---------------------------------------------------------------------
 	//CREATE
-    public void createArticleVendu(ArticleVendu articleVendu){
+    public void createArticleVendu(ArticleVendu articleVendu) throws SQLException, BusinessException{
 
             dao.insert(articleVendu);
 
@@ -30,7 +33,7 @@ public class ArticleVenduManager {
     
     //---------------------------------------------------------------------
     //READ
-    public ArticleVendu getArticleVenduById(int no_article){
+    public ArticleVendu getArticleVenduById(int no_article) throws SQLException, BusinessException{
     	
     	
         ArticleVendu articleVendu = 
@@ -40,14 +43,14 @@ public class ArticleVenduManager {
     
     //--------------------------------------------------------------------- 
     //UPDATE
-    public void updateArticleVendu(ArticleVendu articleVenduUpdate){
+    public void updateArticleVendu(ArticleVendu articleVenduUpdate) throws SQLException, BusinessException{
 
     		dao.update(articleVenduUpdate);
     }
     
     //--------------------------------------------------------------------- 
     //DELETE
-    public void deleteArticleVendu(int articleVenduDelete){
+    public void deleteArticleVendu(int articleVenduDelete) throws SQLException, BusinessException{
     	
         dao.delete(articleVenduDelete);
     }

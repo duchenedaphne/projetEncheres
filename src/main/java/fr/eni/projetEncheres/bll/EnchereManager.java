@@ -1,5 +1,8 @@
 package fr.eni.projetEncheres.bll;
 
+import java.sql.SQLException;
+
+import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.Enchere;
 import fr.eni.projetEncheres.dal.dao.EnchereDAO;
 import fr.eni.projetEncheres.dal.dao.FactoryDAO;
@@ -22,7 +25,7 @@ public class EnchereManager {
 	
     //---------------------------------------------------------------------
 	//CREATE
-    public void createEnchere(Enchere enchere){
+    public void createEnchere(Enchere enchere)throws SQLException, BusinessException{
 
             dao.insert(enchere);
 
@@ -30,7 +33,7 @@ public class EnchereManager {
     
     //---------------------------------------------------------------------
     //READ
-    public Enchere getEnchereById(int no_enchere){
+    public Enchere getEnchereById(int no_enchere)throws SQLException, BusinessException{
     	
     	
     		Enchere enchere = 
@@ -40,14 +43,14 @@ public class EnchereManager {
 
     //--------------------------------------------------------------------- 
     //UPDATE
-    public void updateEnchere(Enchere enchereUpdate){
+    public void updateEnchere(Enchere enchereUpdate)throws SQLException, BusinessException{
 
     		dao.update(enchereUpdate);
     }
     
     //--------------------------------------------------------------------- 
     //DELETE
-    public void deleteEnchere(int enchereDelete){
+    public void deleteEnchere(int enchereDelete)throws SQLException, BusinessException{
     	
         dao.delete(enchereDelete);
     }

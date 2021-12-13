@@ -1,8 +1,10 @@
 package fr.eni.projetEncheres.dal.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 //import java.sql.SQLException;
 
+import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.ArticleVendu;
 import fr.eni.projetEncheres.bo.Utilisateur;
 //import fr.eni.eniEncheres.dal.DALException;
@@ -15,22 +17,22 @@ public interface ArticleVenduDAO {
 	
 	
 	//insert update delete
-
-	public ArticleVendu selectArticleVenduById(int no_article); //throws  SQLException, DALException;
 	
-	public void insert(ArticleVendu av); //throws  SQLException, DALException;
+	public void insert(ArticleVendu av)throws  SQLException, BusinessException;
 	
-	public void update(ArticleVendu av); //throws  SQLException, DALException;
+	public void update(ArticleVendu av)throws  SQLException, BusinessException;
 	
-	public void delete(int no_article); //throws  SQLException, DALException;
+	public void delete(int no_article)throws  SQLException, BusinessException;
 	
-	//select list
+	//select
 	
-	public List<ArticleVendu> select(); //throws  SQLException, DALException;
+	public ArticleVendu selectArticleVenduById(int no_article)throws  SQLException, BusinessException;
 	
-	public List<ArticleVendu> selectAllArticleVendu(); //throws  SQLException, DALException;
+	public List<ArticleVendu> select()throws  SQLException, BusinessException;
 	
-	public List<ArticleVendu> selectAllArticleVenduByUtilisateur(Utilisateur u);  //throws  SQLException, DALException;
+	public List<ArticleVendu> selectAllArticleVendu()throws  SQLException, BusinessException;
+	
+	public List<ArticleVendu> selectAllArticleVenduByUtilisateur(Utilisateur u)throws  SQLException, BusinessException;
 	
 
 	

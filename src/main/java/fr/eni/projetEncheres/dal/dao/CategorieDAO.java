@@ -1,10 +1,10 @@
 package fr.eni.projetEncheres.dal.dao;
 
+import java.sql.SQLException;
 import java.util.List;
-//import java.sql.SQLException;
 
+import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.Categorie;
-//import fr.eni.eniEncheres.dal.DALException;
 
 /**
  * @author Julian
@@ -13,20 +13,20 @@ import fr.eni.projetEncheres.bo.Categorie;
 public interface CategorieDAO {
 
 	
-	//insert update delete // admin 
+	//insert update delete
 	
-	public Categorie selectCategorieById(int no_article); //throws  SQLException, DALException;
+	public void insert(Categorie c)throws  SQLException, BusinessException;
 	
-	public void insert(Categorie c); //throws  SQLException, DALException;
+	public void update(Categorie c)throws  SQLException, BusinessException;
 	
-	public void update(Categorie c); //throws  SQLException, DALException;
+	public void delete(int no_categorie)throws  SQLException, BusinessException;
 	
-	public void delete(int no_categorie); //throws  SQLException, DALException;
+	//select
 	
-	//select list
+	public Categorie selectCategorieById(int no_article)throws  SQLException, BusinessException;
 	
-	public List<Categorie> select(); //throws  SQLException, DALException;
+	public List<Categorie> select()throws  SQLException, BusinessException;
 	
-	public List<Categorie> selectAlCategorie(); //throws  SQLException, DALException;
+	public List<Categorie> selectAlCategorie()throws  SQLException, BusinessException;
 	
 	}

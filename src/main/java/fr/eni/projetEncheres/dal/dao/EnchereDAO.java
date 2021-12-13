@@ -1,12 +1,11 @@
 package fr.eni.projetEncheres.dal.dao;
 
+import java.sql.SQLException;
 import java.util.List;
-//import java.sql.SQLException;
 
-import fr.eni.projetEncheres.bo.ArticleVendu;
+import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.Enchere;
 import fr.eni.projetEncheres.bo.Utilisateur;
-//import fr.eni.eniEncheres.dal.DALException;
 
 /**
  * @author Julian
@@ -16,22 +15,24 @@ public interface EnchereDAO {
 	
 	
 	//insert update delete
-
-	public Enchere selectEnchereById(int no_enchere); //throws  SQLException, DALException;
 	
-	public void insert(Enchere e); //throws  SQLException, DALException;
+	public void insert(Enchere enc)throws  SQLException, BusinessException;
 	
-	public void update(Enchere e); //throws  SQLException, DALException;
+	public void update(Enchere enc)throws  SQLException, BusinessException;
 	
-	public void delete(int no_enchere); //throws  SQLException, DALException;
+	public void delete(int no_enchere)throws  SQLException, BusinessException;
 	
-	//select list
+	//select
 	
-	public List<Enchere> select(); //throws  SQLException, DALException;
+	public Enchere selectEnchereById(int no_enchere)throws  SQLException, BusinessException;
 	
-	public List<Enchere> selectAllEnchere(); //throws  SQLException, DALException;
+	public Enchere selectEnchereByUtilisateur(Utilisateur utilisateur,int no_enchere)throws  SQLException, BusinessException;
 	
-	public List<Enchere> selectAllEnchereByUtilisateur(Utilisateur u);  //throws  SQLException, DALException;
+	public List<Enchere> select()throws  SQLException, BusinessException;
+	
+	public List<Enchere> selectAllEnchere()throws  SQLException, BusinessException;
+	
+	public List<Enchere> selectAllEnchereByUtilisateur(Utilisateur u)throws  SQLException, BusinessException;
 	
 
 }
