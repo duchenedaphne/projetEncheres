@@ -23,7 +23,6 @@
             <img class="align-self-end" src='img/nuage3.svg' alt='' width="150px">
             </div>                                                            
         </div>                                                                
-        </div>
 		      <p>logged : ${sessionScope['logged']}</p>
 	
 	 <!-- Formulaire de Connexion -->
