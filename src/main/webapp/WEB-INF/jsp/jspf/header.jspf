@@ -2,17 +2,8 @@
 	<!-- Logo -->
 	<div class="container-fluid d-flex justify-content-between shadow p-3 mb-5" style="background-color: #eeeeee;">
 		<div id="logo" class="pull-left">
-	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logo.svg" alt="logo" title="" width="120px" /></a>
+	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logoee4.svg" alt="logo" title="" width="50" /></a>
         </div>
-         <!-- Retour en arrière --><!-- Rafraîchir -->
-        <div class="container d-flex justify-content-center align-items-center ">
-	        <div class="pr-4">
-			<button id="buttonback" type="button" class="btn btn-primary-outline btn-sm" style = "background-color: transparent" onclick="history.go(-1)"><img alt="" src="img/back.png" ></button>
-			</div>
-			<div class="pl-4">
-			<button id="buttonrefresh" type="button" class="btn btn-primary-outline btn-sm" style = "background-color: transparent" onclick="history.go(0)"><img alt="" src="img/refresh.png" ></button>
-			</div>
-		</div>
 		<!-- Naviguation -->
         <nav id="nav-menu-container">
             <ul class="nav d-flex justify-content-end align-items-center">
