@@ -63,28 +63,28 @@ public class ServletInscription extends HttpServlet {
 		if (pseudo == null || pseudo.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
-		if (nom == null || pseudo.trim().isEmpty()) {
+		if (nom == null || nom.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
-		if (prenom == null || pseudo.trim().isEmpty()) {
+		if (prenom == null || prenom.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
-		if (mail == null || pseudo.trim().isEmpty()) {
+		if (mail == null || mail.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
-		if (adresse == null || pseudo.trim().isEmpty()) {
+		if (adresse == null || adresse.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
-		if (codepostal == null || pseudo.trim().isEmpty()) {
+		if (codepostal == null || codepostal.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
-		if (ville == null || pseudo.trim().isEmpty()) {
+		if (ville == null || ville.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
-		if (password == null || pseudo.trim().isEmpty()) {
+		if (password == null || password.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
-		if (passwordcheck == null || pseudo.trim().isEmpty()) {
+		if (passwordcheck == null || passwordcheck.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
 		
@@ -99,8 +99,8 @@ public class ServletInscription extends HttpServlet {
 			
 			try {
 				utilisateurManager.ajouterUtilisateur(pseudo, nom, prenom, mail, telephone, adresse, codepostal, ville, password, passwordcheck, 0, false);
-			//	String logged = "log";
-			//	session.setAttribute("logged", logged);
+				String logged = "log";
+				session.setAttribute("logged", logged);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
 				rd.forward(request, response);
 				
