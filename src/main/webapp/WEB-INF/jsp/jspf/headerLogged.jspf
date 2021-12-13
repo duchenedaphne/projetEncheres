@@ -1,8 +1,8 @@
 <header >
 	<!-- Logo -->
-	<div class="container-fluid d-flex justify-content-between shadow p-3" style="background-color: #eeeeee;">
-		<div id="logo" class="pull-left">
-	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logoee4.png" alt="logo" title="" width="120px" /></a>
+	<div class="container-fluid d-flex justify-content-between align-items-center shadow p-3" style=" height: 120px; background-color: #eeeeee;">
+		<div id="logo" class="pull-left align-items-center">
+	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logoee4.png" alt="logo" title="" width="100px" /></a>              
         </div>
 
 		<!-- Naviguation -->
