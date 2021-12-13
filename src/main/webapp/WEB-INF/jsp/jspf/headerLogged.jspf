@@ -2,7 +2,7 @@
 	<!-- Logo -->
 	<div class="container-fluid d-flex justify-content-between shadow p-3" style="background-color: #eeeeee;">
 		<div id="logo" class="pull-left">
-	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logoee4.svg" alt="logo" title="" width="120px" /></a>
+	                <a href="<%=request.getContextPath()%>/ServletAccueil"><img src="img/logoee4.png" alt="logo" title="" width="120px" /></a>
         </div>
 
 		<!-- Naviguation -->
