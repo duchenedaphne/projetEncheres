@@ -13,6 +13,10 @@ import fr.eni.projetEncheres.dal.jdbc.UtilisateurDAOJdbcImpl;
  */
 public abstract class FactoryDAO {
 	
+	public static UtilisateurDAO getUtilisateurODAO() {
+		return new UtilisateurDAOJdbcImpl();
+	}
+	
 	public static DAO<Utilisateur> getUtilisateurDAO() {
 		return new UtilisateurDAOJdbcImpl();
 	}

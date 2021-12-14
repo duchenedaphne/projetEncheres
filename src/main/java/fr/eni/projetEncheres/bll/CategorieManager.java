@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.Categorie;
 import fr.eni.projetEncheres.dal.dao.CategorieDAO;
+import fr.eni.projetEncheres.dal.dao.DAO;
 import fr.eni.projetEncheres.dal.dao.FactoryDAO;
 
 //import fr.eni.projet_encheres.dal.ExceptionDAL;
@@ -17,18 +18,32 @@ public class CategorieManager {
 
     //---------------------------------------------------------------------
 	//Factory
-    private static CategorieDAO dao;
+    private static DAO<Categorie> categorieDao;
 
-    static {
-        dao = FactoryDAO.getCategorieDAO();
+    public CategorieManager() {
+        categorieDao = FactoryDAO.getCategorieDAO();
     }
     
     //---------------------------------------------------------------------
 	//CREATE
-    public void createCategorie(Categorie categorie)throws SQLException, BusinessException{
-
-            dao.insert(categorie);
-
+    public Categorie createCategorie(String libelle)throws SQLException, BusinessException{
+ 
+    	BusinessException businessException = new BusinessException(); 
+    	
+    	this.validerLibelle(libelle, businessException);
+    	
+    	Categorie categorie = null;
+    	
+    	if (!businessException.hasErreurs()) {
+    		
+    		categorie = new Categorie();
+    		categorie.setLibelle(libelle);
+    		
+    		this.categorieDao.insert(categorie);
+    	} else {
+    		throw businessException;
+    	}
+    	return categorie;
     }
     
     //---------------------------------------------------------------------
@@ -37,7 +52,7 @@ public class CategorieManager {
     	
     	
     		Categorie categorie = 
-        		dao.selectCategorieById(no_categorie);
+    			categorieDao.selectCategorieById(no_categorie);
         return categorie;
     }
     
@@ -45,13 +60,19 @@ public class CategorieManager {
     //UPDATE
     public void updateCategorie(Categorie categorieUpdate)throws SQLException, BusinessException{
 
-    		dao.update(categorieUpdate);
+    	categorieDao.update(categorieUpdate);
     }
     
     //--------------------------------------------------------------------- 
     //DELETE
     public void deleteCategorie(int categorieDelete)throws SQLException, BusinessException{
     	
-        dao.delete(categorieDelete);
+    	categorieDao.delete(categorieDelete);
     }
+    
+    private void validerLibelle(String libelle, BusinessException businessException) {
+		if (libelle == null) {
+			businessException.ajouterErreur(CodesResultatBLL.REGLE_LIBELLE_ERREUR);
+		} 
+	}
 }
