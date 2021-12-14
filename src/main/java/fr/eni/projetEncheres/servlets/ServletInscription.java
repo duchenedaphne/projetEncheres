@@ -101,6 +101,15 @@ public class ServletInscription extends HttpServlet {
 				utilisateurManager.ajouterUtilisateur(pseudo, nom, prenom, mail, telephone, adresse, codepostal, ville, password, passwordcheck, 0, false);
 				String logged = "log";
 				session.setAttribute("logged", logged);
+				session.setAttribute("username", pseudo);
+				session.setAttribute("nom", nom);
+				session.setAttribute("prenom", prenom);
+				session.setAttribute("telephone", telephone);
+				session.setAttribute("mail", mail);
+				session.setAttribute("rue", adresse);
+				session.setAttribute("codepostal", codepostal);
+				session.setAttribute("ville", ville);
+				session.setAttribute("MotDePasse", password);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
 				rd.forward(request, response);
 				
