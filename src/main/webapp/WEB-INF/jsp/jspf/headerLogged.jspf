@@ -9,9 +9,10 @@
 		
 		<nav id="nav-menu-container">
 		<ul class="nav d-flex justify-content-end align-items-center">
-			<li class="nav-item"><p>Bienvenue ${sessionScope['prenom']} ${sessionScope['nom'] }</p>
+			<li class="nav-item">Bienvenue ${sessionScope['prenom']} ${sessionScope['nom'] }
+			</li>
   			<li class="nav-item">
-   				<a class="nav-link active" href="<%=request.getContextPath()%>/ServletMesEnchères">Enchères</a>
+   				<a class="nav-link active" href="<%=request.getContextPath()%>/ServletMesEnchères">Mes Enchères</a>
   			</li>
   			<li class="nav-item">
     			<a class="nav-link" href="<%=request.getContextPath()%>/ServletNouvelleVente">Vendre un article</a>
