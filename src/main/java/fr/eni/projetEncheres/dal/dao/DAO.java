@@ -24,10 +24,4 @@ public interface DAO<T> {
 	//Supprimer un élément :
 	public void delete(int id) throws BusinessException;
 	
-	//Sélectionner en fonction des log utlisateurs à la connexion grâce au pseudo:
-	public int selectLog(String id, String password) throws BusinessException;
-	
-	//Sélectionner en fonction des log utlisateurs à la connexion grâce au mail:
-		public int selectMail(String id, String password) throws BusinessException;
-		
 }

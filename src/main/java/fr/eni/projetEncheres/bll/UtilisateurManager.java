@@ -4,6 +4,7 @@ import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.Utilisateur;
 import fr.eni.projetEncheres.dal.dao.DAO;
 import fr.eni.projetEncheres.dal.dao.FactoryDAO;
+import fr.eni.projetEncheres.dal.dao.UtilisateurDAO;
 
 /**
  * @author Daphné
@@ -11,9 +12,12 @@ import fr.eni.projetEncheres.dal.dao.FactoryDAO;
 public class UtilisateurManager {
 	
 	private DAO<Utilisateur> utilisateurDAO;
+	
+	private UtilisateurDAO utilisateurODAO;
 
 	public UtilisateurManager() {
 		this.utilisateurDAO = FactoryDAO.getUtilisateurDAO();
+		this.utilisateurODAO = FactoryDAO.getUtilisateurODAO();
 	}
 	
 	public Utilisateur ajouterUtilisateur(String pseudo, String nom, String prenom, String mail, String telephone, String rue, String codepostal, 
@@ -60,9 +64,9 @@ public class UtilisateurManager {
 	}
 
 	public int logUtilisateur(String id, String password) throws BusinessException {
-		int no_utilisateur = utilisateurDAO.selectLog(id, password);
+		int no_utilisateur = utilisateurODAO.selectLog(id, password);
 		if (no_utilisateur == -1) {
-			no_utilisateur = utilisateurDAO.selectMail(id, password);
+			no_utilisateur = utilisateurODAO.selectMail(id, password);
 		}
 		return no_utilisateur;
 	}
