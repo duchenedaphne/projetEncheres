@@ -11,17 +11,6 @@ import fr.eni.projetEncheres.bo.Categorie;
  */
 
 public interface CategorieDAO {
-
-	
-	//insert update delete
-	
-	public void insert(Categorie c)throws  SQLException, BusinessException;
-	
-	public void update(Categorie c)throws  SQLException, BusinessException;
-	
-	public void delete(int no_categorie)throws  SQLException, BusinessException;
-	
-	//select
 	
 	public Categorie selectCategorieById(int no_article)throws  SQLException, BusinessException;
 	
