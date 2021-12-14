@@ -21,11 +21,13 @@ public interface UtilisateurDAO {
 	
 	//select
 	
-	public Utilisateur selectUtilisateurById(int no_utilisateur)throws  SQLException, BusinessException;
+	public Utilisateur selectById(int no_utilisateur)throws  SQLException, BusinessException;
 	
-	public List<Utilisateur> select()throws  SQLException, BusinessException;
+	public List<Utilisateur> selectAll()throws  SQLException, BusinessException;
 	
-	public List<Utilisateur> selectAllUtilisateur()throws  SQLException, BusinessException;
+	public int selectMail(String id, String password) throws BusinessException;
+	
+	public int selectLog(String id, String password) throws BusinessException;
 	
 	
 }
