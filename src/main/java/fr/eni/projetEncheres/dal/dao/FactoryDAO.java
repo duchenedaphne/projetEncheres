@@ -1,5 +1,6 @@
 package fr.eni.projetEncheres.dal.dao;
 
+import fr.eni.projetEncheres.bo.Categorie;
 import fr.eni.projetEncheres.bo.Retrait;
 import fr.eni.projetEncheres.bo.Utilisateur;
 import fr.eni.projetEncheres.dal.jdbc.ArticleVenduDAOJdbcImpl;
@@ -33,7 +34,10 @@ public abstract class FactoryDAO {
 		return new ArticleVenduDAOJdbcImpl();
 	}
 	
-	public static CategorieDAO getCategorieDAO() {
+	public static CategorieDAO getCategorieODAO() {
+		return new CategorieDAOJdbcImpl();
+	}
+	public static DAO<Categorie> getCategorieDAO() {
 		return new CategorieDAOJdbcImpl();
 	}
 	

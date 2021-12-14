@@ -52,7 +52,7 @@ public class CategorieManager {
     	
     	
     		Categorie categorie = 
-    			categorieDao.selectCategorieById(no_categorie);
+    			categorieDao.selectById(no_categorie);
         return categorie;
     }
     
