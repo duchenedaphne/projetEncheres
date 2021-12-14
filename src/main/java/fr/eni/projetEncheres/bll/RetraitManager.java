@@ -16,8 +16,28 @@ public class RetraitManager {
 		this.retraitDAO = FactoryDAO.getRetraitDAO();
 	}
 	
-	public void ajouterRetrait(Retrait retrait) throws BusinessException {
-		retraitDAO.insert(retrait);
+	public Retrait ajouterRetrait(String rue,
+		    String code_postal,
+		    String ville) throws BusinessException {
+		
+		BusinessException businessException = new BusinessException(); 
+		
+		this.validerAdresse(rue, businessException);
+		
+		Retrait retrait = null; 
+		
+		if (!businessException.hasErreurs()) {
+			
+			retrait = new Retrait();
+			retrait.setRue(rue);
+			retrait.setCode_postal(code_postal);
+			retrait.setVille(ville);
+			
+			this.retraitDAO.insert(retrait);
+		} else {
+			throw businessException;
+		}
+		return retrait;
 	}
 	
 	public Retrait afficherRetrait(int no_article) throws BusinessException {
@@ -28,6 +48,12 @@ public class RetraitManager {
 	
 	public void supprimerRetrait(int no_article) throws BusinessException {
 		retraitDAO.delete(no_article);
+	}
+	
+	private void validerAdresse(String rue, BusinessException businessException) {
+		if (rue == null) {
+			businessException.ajouterErreur(CodesResultatBLL.REGLE_ADRESSE_ERREUR);
+		} 
 	}
 
 }
