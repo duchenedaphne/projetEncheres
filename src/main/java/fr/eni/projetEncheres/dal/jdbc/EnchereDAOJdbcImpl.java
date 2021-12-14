@@ -8,6 +8,7 @@ import fr.eni.projetEncheres.bo.Enchere;
 import fr.eni.projetEncheres.bo.Retrait;
 import fr.eni.projetEncheres.bo.Utilisateur;
 import fr.eni.projetEncheres.dal.CodesResultatDAL;
+import fr.eni.projetEncheres.dal.ConnectionProvider;
 import fr.eni.projetEncheres.dal.dao.ArticleVenduDAO;
 import fr.eni.projetEncheres.dal.dao.CategorieDAO;
 import fr.eni.projetEncheres.dal.dao.EnchereDAO;
@@ -34,8 +35,8 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	}
 
 	@Override
-	public void insert(Enchere enc) {
-		try(Connection cnx = JdbcTools.connect()) {
+	public void insert(Enchere enc) throws BusinessException {
+		try(Connection cnx = ConnectionProvider.getConnection()) {
 			try {
 	            String INSERT = "INSERT INTO CATEGORIES (libelle) VALUES (?)";
 				
@@ -43,7 +44,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 				PreparedStatement pstmt = cnx.prepareStatement(INSERT, 
 						PreparedStatement.RETURN_GENERATED_KEYS);
 		        pstmt.setInt(1, enc.getNo_enchere());
-		        pstmt.setString(2, enc.getUtilisateur());
+		        pstmt.setInt(2, enc.getUtilisateur().getNo_utilisateur());
 		        	pstmt.setInt(2, enc.getNo_article());
 		        	pstmt.setDate(2, enc.getDate_enchere());
 		        	pstmt.setInt(2, enc.getMontant_enchere());

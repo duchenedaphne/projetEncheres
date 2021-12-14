@@ -129,7 +129,19 @@ public class ArticleVendu implements Serializable {
 				+ date_fin_encheres + ", prix_initial=" + prix_initial + ", prix_vente=" + prix_vente
 				+ ", utilisateur=" + utilisateur + ", categorie=" + categorie + "]";
 	}
-    
+	public ArticleVendu(int no_article, String nom_article, String description, Date date_debut_encheres,
+            Date date_fin_encheres, int prix_initial, int prix_vente, int no_utilisateur, int no_categorie) {
+        super();
+        this.no_article = no_article;
+        this.nom_article = nom_article;
+        this.description = description;
+        this.date_debut_encheres = date_debut_encheres;
+        this.date_fin_encheres = date_fin_encheres;
+        this.prix_initial = prix_initial;
+        this.prix_vente = prix_vente;
+        no_utilisateur = this.utilisateur.getNo_utilisateur();
+        no_categorie = this.categorie.getNo_categorie();
+    }
 }
 
 
