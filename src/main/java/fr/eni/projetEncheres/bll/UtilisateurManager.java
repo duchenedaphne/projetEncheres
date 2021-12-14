@@ -49,8 +49,31 @@ public class UtilisateurManager {
 		}
 		
 		return user;
+	}
+	
+	public void updateProfilUtilisateur(String pseudo, String nom, String prenom, String mail, String telephone, String rue, String codepostal, 
+			 							String ville, String password, String checkPassword) throws BusinessException {
+		BusinessException be = new BusinessException();
+		this.validerPassword(password, checkPassword, be);
 		
+		Utilisateur user = null;
 		
+		if (!be.hasErreurs()) {
+			user = new Utilisateur();
+			user.setPseudo(pseudo);
+			user.setNom(nom);
+			user.setPrenom(prenom);
+			user.setEmail(mail);
+			user.setTelephone(telephone);
+			user.setRue(rue);
+			user.setCode_postal(codepostal);
+			user.setVille(ville);
+			user.setMot_de_passe(password);
+			
+			this.utilisateurDAO.update(user);
+		} else {
+			throw be;
+		}
 	}
 	
 	public Utilisateur afficherUtilisateur(int no_utilisateur) throws BusinessException {

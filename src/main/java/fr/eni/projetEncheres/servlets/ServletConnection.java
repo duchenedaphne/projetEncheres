@@ -84,6 +84,7 @@ public class ServletConnection extends HttpServlet {
 				session.setAttribute("codepostal", user.getCode_postal());
 				session.setAttribute("ville", user.getVille());
 				session.setAttribute("MotDePasse", user.getMot_de_passe());
+				session.setAttribute("credit", user.getCredit());
 				
 				String logged = "log";
 				session.setAttribute("logged", logged);

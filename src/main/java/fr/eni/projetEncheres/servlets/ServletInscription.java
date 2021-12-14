@@ -59,6 +59,7 @@ public class ServletInscription extends HttpServlet {
 		ville = request.getParameter("ville");
 		password = request.getParameter("MotDePasse");
 		passwordcheck = request.getParameter("CheckMotDePasse");
+		
 			
 		if (pseudo == null || pseudo.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
@@ -110,6 +111,7 @@ public class ServletInscription extends HttpServlet {
 				session.setAttribute("codepostal", codepostal);
 				session.setAttribute("ville", ville);
 				session.setAttribute("MotDePasse", password);
+				session.setAttribute("credit", 0);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
 				rd.forward(request, response);
 				

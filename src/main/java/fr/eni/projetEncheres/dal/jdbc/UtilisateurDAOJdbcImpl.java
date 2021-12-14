@@ -25,8 +25,8 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 	private static final String SQL_SELECT_ALL = "select no_utilisateur, pseudo, nom, prenom, "
 			+ "email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur " +  
 			" from utilisateurs";
-	private static final String SQL_UPDATE = "update utilisateurs set pseudo=?,nom=?,"
-			+ "prenom=?,email=?,telephone=?,rue=?,code_postal=?,ville=?,mot-de-passe=?"
+	private static final String SQL_UPDATE = "update utilisateurs set pseudo=?,"
+			+ "email=?,telephone=?,rue=?,code_postal=?,ville=?,mot-de-passe=?"
 			+ " where no_utilisateur = ?";
 	private static final String SQL_INSERT = "insert into utilisateurs(pseudo,nom,prenom,email,telephone,"
 			+ "rue,code_postal,ville,mot_de_passe,credit,administrateur) values(?,?,?,?,?,?,?,?,?,?,?)";
@@ -38,6 +38,8 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 	public Utilisateur selectById(int no_utilisateur) throws BusinessException {
 		
 		Utilisateur utilisateur = null;
+		
+		// Méthode à revoir entièrement
 		
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECT_BY_ID);
@@ -179,16 +181,14 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(SQL_UPDATE);
 		    pstmt.setString(1, data.getPseudo());
-		    pstmt.setString(2, data.getNom());
-		    pstmt.setString(3, data.getPrenom());
-		    pstmt.setString(4, data.getEmail());
-		    pstmt.setString(5, data.getTelephone());
-		    pstmt.setString(8, data.getRue());
-		    pstmt.setString(9, data.getCode_postal());
-		    pstmt.setString(10, data.getVille());
-		    pstmt.setString(11, data.getMot_de_passe());
-		    pstmt.setInt(12, data.getCredit());
-		    pstmt.setBoolean(13, data.isAdministrateur());
+		    pstmt.setString(2, data.getEmail());
+		    pstmt.setString(3, data.getTelephone());
+		    pstmt.setString(4, data.getRue());
+		    pstmt.setString(5, data.getCode_postal());
+		    pstmt.setString(6, data.getVille());
+		    pstmt.setString(7, data.getMot_de_passe());
+		    pstmt.setInt(8, data.getNo_utilisateur());
+
 		    
 		    pstmt.executeUpdate();
 		    try {

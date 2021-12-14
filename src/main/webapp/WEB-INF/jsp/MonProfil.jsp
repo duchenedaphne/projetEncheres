@@ -36,12 +36,10 @@
 				
 				
 				
-				<button type="button" class="btn tbn-info" data-toggle="modal" data-target="#modal_infos_compte">Modifier infos</button>
-				
-				<!-- Modal -->
+				<!-- Modal
+				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal_infos_compte">Modifier infos</button>
 				<div class="modal fade" id="modal_infos_compte" role="dialog">
 					<div class="modal-dialog">
-						<!-- Modal content -->
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal"></button>
@@ -52,9 +50,9 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
 						</div>
-					</div>
-					
-				</div>
+					</div>	
+				</div> -->
+				
 			</div>
 			
 			<div class="border">
@@ -70,7 +68,9 @@
 				</c:choose>
 				<p>Adresse : ${sessionScope['rue'] }</p>
 				<p>${sessionScope['codepostal'] } ${sessionScope['ville'] }</p>
+				<p>Crédit : ${sessionScope['credit'] }
 			</div>	
+			<a href="<%=request.getContextPath()%>/ServletModifierProfil" class="btn btn-primary">Modifier infos</a>
 		</div>
 		
 	

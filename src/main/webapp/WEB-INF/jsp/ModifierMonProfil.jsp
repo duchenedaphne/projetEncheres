@@ -28,45 +28,41 @@
 
 
 	<div class="container  shadow rounded mb-5" style="background-color: #eeeeee;">
-	<form class="box" action="<%=request.getContextPath()%>/ServletInscription" method="post" name="inscription">
-		<h1 class="box-title text-center">Inscription</h1>
-		<div class="container-fluid d-flex justify-content-evenly">
-			<div class="d-flex flex-column">
-				<label for="username">Pseudo : </label>
-		        <input type="text" class="box-input align-middle" name="username" placeholder="" required>
-		        <label for="prenom">Prénom : </label>
-		        <input type="text" class="box-input align-middle" name="prenom" placeholder="" required>
-		        <label for="telephone">Teléphone : </label>
-		        <input type="text" class="box-input align-middle" name="telephone" placeholder="">
-		        <label for="codepostal">Code Postal : </label>
-		        <input type="text" class="box-input align-middle" name="codepostal" placeholder="" required>
-		        <label for="MotDePasse">Mot de passe : </label>
-		        <input type="password" class="box-input align-middle" name="MotDePasse" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-	        </div>
-	        <div class="d-flex flex-column">
-		        <label for="nom">Nom : </label>
-		        <input type="text" class="box-input align-middle" name="nom" placeholder="" required>
-		        <label for="mail">Email : </label>
-		        <input type="text" class="box-input align-middle" name="mail" placeholder="" required>
-		        <label for="rue">Adresse : </label>
-		        <input type="text" class="box-input align-middle" name="rue" placeholder="" required>
-		        <label for="ville">Ville : </label>
-		        <input type="text" class="box-input align-middle" name="ville" placeholder="" required>
-		        <label for="CheckMotDePasse">Confirmation : </label>
-		        <input type="password" class="box-input align-middle" name="CheckMotDePasse" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+		<form class="box" action="<%=request.getContextPath()%>/ServletModifierProfil" method="post" name="update">
+			<h1 class="box-title text-center">Modifier mes infos</h1>
+			<div class="container-fluid d-flex justify-content-evenly">
+				<div class="d-flex flex-column">
+					<label for="updateUsername">Pseudo : </label>
+			        <input type="text" class="box-input align-middle" name="updateUsername" placeholder="Nouveau pseudo" >
+
+			        <label for="updateMail">Email : </label>
+			        <input type="email" class="box-input align-middle" name="updateMail" placeholder="Nouvelle adresse mail">
+
+			        <label for="updatePassword">Mot de passe : </label>
+			        <input type="password" class="box-input align-middle" name="updatePassword" placeholder="Nouveau mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
+			        <label for="checkUpdatedPassword">Confirmation : </label>
+			        <input type="password" class="box-input align-middle" name="checkUpdatedPassword" placeholder="Confirmer mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
+		        	
+		        </div>
+		        
+		        <div class="d-flex flex-column">
+		        	<label for="updateTelephone">Teléphone : </label>
+		        	<input type="text" class="box-input align-middle" name="updateTelephone" placeholder="" >
+		        	<label for="updateCodepostal">Code Postal : </label>
+		        	<input type="text" class="box-input align-middle" name="updateCodepostal" placeholder="" >
+		        	<label for="updateRue">Adresse : </label>
+		        	<input type="text" class="box-input align-middle" name="updateRue" placeholder="" >
+		        	<label for="updateVille">Ville : </label>
+		        	<input type="text" class="box-input align-middle" name="updateVille" placeholder="" >
+		        	<div class="mr-4">
+		        		<input type="submit" value="Modifier" name="submit" class="box-button">
+		        	</div>
+		        </div>
+		        
+		        
 		   </div>
-	  	</div>
-	   
-   	 	<div class="container-fluid d-flex justify-content-evenly text-center mt-4 p-3">
-	   	 	<div class="mr-4">
-	        	<input type="submit" value="Créer" name="submit" class="box-button">
-	        </div>
-	        <div class="mr-4 ml-4">
-	        	<input type="reset" value="Annuler" name="reset" onclick="location.href='<%=request.getContextPath()%>/ServletAccueil'" class="box-button">
-	   		</div>
-   		</div>
-		<span class="box-register container-fluid d-flex justify-content-center text-center mt-4 pb-4">Vous avez déjà un compte ? <a href="<%=request.getContextPath()%>/ServletConnection">Se Connecter</a></span>
-	</form>
+
+		</form>
 	</div>
 </body>
 

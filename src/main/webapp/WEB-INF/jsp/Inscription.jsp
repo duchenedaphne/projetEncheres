@@ -47,13 +47,14 @@
 		        <label for="nom">Nom : </label>
 		        <input type="text" class="box-input align-middle" name="nom" placeholder="" required>
 		        <label for="mail">Email : </label>
-		        <input type="text" class="box-input align-middle" name="mail" placeholder="" required>
+		        <input type="email" class="box-input align-middle" name="mail" placeholder="" required>
 		        <label for="rue">Adresse : </label>
 		        <input type="text" class="box-input align-middle" name="rue" placeholder="" required>
 		        <label for="ville">Ville : </label>
 		        <input type="text" class="box-input align-middle" name="ville" placeholder="" required>
 		        <label for="CheckMotDePasse">Confirmation : </label>
 		        <input type="password" class="box-input align-middle" name="CheckMotDePasse" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+		        <input type="hidden" name="credit">
 		   </div>
 	  	</div>
 	   
