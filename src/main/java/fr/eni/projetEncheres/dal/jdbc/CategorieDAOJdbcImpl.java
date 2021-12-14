@@ -1,25 +1,16 @@
 package fr.eni.projetEncheres.dal.jdbc;
 
 import fr.eni.projetEncheres.BusinessException;
-import fr.eni.projetEncheres.bo.ArticleVendu;
 import fr.eni.projetEncheres.bo.Categorie;
-import fr.eni.projetEncheres.bo.Enchere;
-import fr.eni.projetEncheres.bo.Retrait;
-import fr.eni.projetEncheres.bo.Utilisateur;
 import fr.eni.projetEncheres.dal.CodesResultatDAL;
 import fr.eni.projetEncheres.dal.ConnectionProvider;
-import fr.eni.projetEncheres.dal.dao.ArticleVenduDAO;
 import fr.eni.projetEncheres.dal.dao.CategorieDAO;
 import fr.eni.projetEncheres.dal.dao.DAO;
-import fr.eni.projetEncheres.dal.dao.EnchereDAO;
-import fr.eni.projetEncheres.dal.dao.RetraitDAO;
-import fr.eni.projetEncheres.dal.dao.UtilisateurDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -191,36 +182,6 @@ public class CategorieDAOJdbcImpl implements DAO<Categorie>, CategorieDAO {
 		} catch (SQLException e) {
 		    throw new BusinessException();
 		} 
-	}
-
-	@Override
-	public List<Categorie> select() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Categorie> selectAlCategorie() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Categorie selectCategorieById(int no_article) throws SQLException, BusinessException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int selectLog(String id, String password) throws BusinessException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int selectMail(String id, String password) throws BusinessException {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }

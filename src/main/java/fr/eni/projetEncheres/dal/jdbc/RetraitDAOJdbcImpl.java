@@ -198,18 +198,6 @@ public class RetraitDAOJdbcImpl implements DAO<Retrait>, RetraitDAO {
 		
 	}
 
-	@Override
-	public int selectLog(String id, String password) throws BusinessException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int selectMail(String id, String password) throws BusinessException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }
 
 
