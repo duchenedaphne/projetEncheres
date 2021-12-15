@@ -108,6 +108,10 @@ public class ServletModifierProfil extends HttpServlet {
 				
 				utilisateurManager.updateProfilUtilisateur(username, nom, prenom, mail, telephone, adresse, codepostal, ville, password, checkPassword);
 				
+		/*		request.setAttribute("listeCodesErreur",listeCodesErreur);
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/MonProfil.jsp");
+				rd.forward(request, response);*/
+				
 			} catch (BusinessException e) {
 				e.printStackTrace();
 				request.setAttribute("listeCodesErreur", e.getListeCodesErreur());

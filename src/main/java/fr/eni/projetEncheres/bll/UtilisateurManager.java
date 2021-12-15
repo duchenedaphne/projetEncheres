@@ -20,12 +20,6 @@ public class UtilisateurManager {
 		this.utilisateurODAO = FactoryDAO.getUtilisateurODAO();
 	}
 	
-	public int getUserId(Utilisateur user) {
-		int id = 0;
-		id = user.getNo_utilisateur();
-		
-		return id;
-	}
 	
 	public Utilisateur ajouterUtilisateur(String pseudo, String nom, String prenom, String mail, String telephone, String rue, String codepostal, 
 									 String ville, String password, String passwordCheck, int credit, boolean admin) throws BusinessException {
