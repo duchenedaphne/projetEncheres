@@ -1,9 +1,11 @@
 package fr.eni.projetEncheres.bll;
 
+import java.sql.Date;
 import java.sql.SQLException;
 
 import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bo.Enchere;
+import fr.eni.projetEncheres.bo.Utilisateur;
 import fr.eni.projetEncheres.dal.dao.EnchereDAO;
 import fr.eni.projetEncheres.dal.dao.FactoryDAO;
 
@@ -24,10 +26,36 @@ public class EnchereManager {
     }
 	
     //---------------------------------------------------------------------
-	//CREATE
-    public void createEnchere(Enchere enchere)throws SQLException, BusinessException{
+	//CREATE 
+    /**
+    * @author Adrien Bodin
+    */
+    public void ajouterEnchere(String NomArticle, String description, String catégories, String photoArticle, int credit, Date DébutEnchère, Date FinEnchère, String rue, String codepostal, String ville  )throws SQLException, BusinessException{
 
-            dao.insert(enchere);
+    
+		Enchere enchere = null;
+		
+		if (!be.hasErreurs()) {
+			enchere = new Enchere();
+			enchere.setNomArticle(NomArticle);
+			enchere.setDescription(description);
+			enchere.setCatégories(catégories);
+			enchere.setPhotoArticle(photoArticle);
+			enchere.setCredit(credit);
+			enchere.setDébutEnchère(DébutEnchère);
+			enchere.setFinEnchère(FinEnchère);
+			enchere.setRue(rue);
+			enchere.setCodepostal(codepostal);
+			enchere.setVille(ville);
+
+			
+			this.EnchereDAO.insert(enchere);
+			
+		} else {
+			throw be;
+		}
+		
+		return enchere;
 
     }
     

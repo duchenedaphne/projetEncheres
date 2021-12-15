@@ -29,11 +29,11 @@
         
         
         <div class="container  shadow rounded mb-5" style="background-color: #eeeeee;">
-	<form class="box" action="" method="post" name="">
+	<form class="box" action="<%=request.getContextPath()%>/ServletNouvelleVente" method="post" name="NouvelleVente">
 		<h1 class="box-title text-center mb-4">Nouvelle Vente</h1>
 		<div class="container-fluid d-flex justify-content-evenly">
 			<div class="d-flex flex-column">
-				<label for="article">Article : </label>
+				<label for="NomArticle">Article : </label>
 		        <input type="text" class="box-input align-middle" name="article" placeholder="" required>
 		        <label for="description">Description : </label>
 		        <TEXTAREA name="description" rows=4 cols=40 required></TEXTAREA>
