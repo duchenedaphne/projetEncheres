@@ -30,13 +30,17 @@ public class EnchereManager {
     /**
     * @author Adrien Bodin
     */
-    public void ajouterEnchere(String NomArticle, String description, String catégories, String photoArticle, int credit, Date DébutEnchère, Date FinEnchère, String rue, String codepostal, String ville  )throws SQLException, BusinessException{
+    public void ajouterEnchere( String no_utilisateur, int no_article, Date date_enchere, int montant_enchere, String NomArticle, String description, String catégories, String photoArticle, int credit, Date DébutEnchère, Date FinEnchère, String rue, String codepostal, String ville  )throws SQLException, BusinessException{
 
     
 		Enchere enchere = null;
 		
 		if (!be.hasErreurs()) {
 			enchere = new Enchere();
+			enchere.setUtilisateur(no_utilisateur);
+			enchere.setNo_article(no_article);
+			enchere.setDate_enchere(date_enchere);
+			enchere.setMontant_enchere(montant_enchere);
 			enchere.setNomArticle(NomArticle);
 			enchere.setDescription(description);
 			enchere.setCatégories(catégories);
