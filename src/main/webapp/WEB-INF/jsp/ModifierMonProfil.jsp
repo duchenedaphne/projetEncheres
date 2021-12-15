@@ -15,7 +15,7 @@
 <body>
 
 	<!-- Header -->
-	<%@ include file="jspf/header.jspf" %>
+	<%@ include file="jspf/headerLogged.jspf" %>
 	   <div class=" p-2 mb-3 d-flex" style="height: 80px; background-color: rgb(189,221,227);" >
             <span class="container-fluid d-flex pull-left align-self-center text-white  w-25" style=" font-weight-bold">
             Modifier Mon Profil</span> 
