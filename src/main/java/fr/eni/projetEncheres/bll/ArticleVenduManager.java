@@ -36,8 +36,8 @@ public class ArticleVenduManager {
     public ArticleVendu getArticleVenduById(int no_article) throws SQLException, BusinessException{
     	
     	
-        ArticleVendu articleVendu = 
-        		dao.selectArticleVenduById(no_article);
+        ArticleVendu articleVendu = null;
+        		articleVendu= dao.selectArticleVenduById(no_article);
         return articleVendu;
     }
     
