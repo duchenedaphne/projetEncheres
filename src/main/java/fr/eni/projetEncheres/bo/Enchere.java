@@ -14,7 +14,7 @@ public class Enchere implements Serializable {
 	Utilisateur utilisateur;
     private int no_article;
     private Date date_enchere;
-	
+    private int montant_enchere;
   
     // Constructeur :
     public Enchere() {
