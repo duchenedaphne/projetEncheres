@@ -69,37 +69,55 @@ public class ServletConnection extends HttpServlet {
 		id = request.getParameter("identifiant");
 		password = request.getParameter("loginpassword");
 		
-		try {
-			no_user = utilisateurManager.logUtilisateur(id, password);
-			if (no_user == -1) {
-				
-			} else {
-				Utilisateur user = utilisateurManager.afficherUtilisateur(no_user);
-				session.setAttribute("username", user.getPseudo());
-				session.setAttribute("nom", user.getNom());
-				session.setAttribute("prenom", user.getPrenom());
-				session.setAttribute("telephone", user.getTelephone());
-				session.setAttribute("mail", user.getEmail());
-				session.setAttribute("rue", user.getRue());
-				session.setAttribute("codepostal", user.getCode_postal());
-				session.setAttribute("ville", user.getVille());
-				session.setAttribute("MotDePasse", user.getMot_de_passe());
-				session.setAttribute("credit", user.getCredit());
-				
-				String logged = "log";
-				session.setAttribute("logged", logged);
-			}
-		} catch (BusinessException e) {
-			e.printStackTrace();
-			request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/DejaConnecte.jsp");
+		if (id == null || id.trim().isEmpty()) {
+			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
+		}
+		if (password == null || password.trim().isEmpty()) {
+			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
+		}
+		
+		if (listeCodesErreur.size() > 0) {
+			request.setAttribute("listeCodesErreur",listeCodesErreur);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Connection.jsp");
 			rd.forward(request, response);
+		} else {
+		
+			try {
+				no_user = utilisateurManager.logUtilisateur(id, password);
+				if (no_user == -1) {
+					request.setAttribute("listeCodesErreur",listeCodesErreur);
+					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Connection.jsp");
+					rd.forward(request, response);
+				} else {
+					Utilisateur user = utilisateurManager.afficherUtilisateur(no_user);
+					session.setAttribute("username", user.getPseudo());
+					session.setAttribute("nom", user.getNom());
+					session.setAttribute("prenom", user.getPrenom());
+					session.setAttribute("telephone", user.getTelephone());
+					session.setAttribute("mail", user.getEmail());
+					session.setAttribute("rue", user.getRue());
+					session.setAttribute("codepostal", user.getCode_postal());
+					session.setAttribute("ville", user.getVille());
+					session.setAttribute("MotDePasse", user.getMot_de_passe());
+					session.setAttribute("credit", user.getCredit());
+					session.setAttribute("userID", no_user);
+					
+					String logged = "log";
+					session.setAttribute("logged", logged);
+					
+					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
+					rd.forward(request, response);
+				}
+			} catch (BusinessException e) {
+				e.printStackTrace();
+				request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/DejaConnecte.jsp");
+				rd.forward(request, response);
+			}
+		
 		}
 		
 		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
-		rd.forward(request, response);
 	}
 	
 }

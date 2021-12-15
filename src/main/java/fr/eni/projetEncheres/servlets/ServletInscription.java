@@ -35,6 +35,7 @@ public class ServletInscription extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int userID = 0;
 		String pseudo=null;
 		String nom=null;
 		String prenom=null;
@@ -47,7 +48,6 @@ public class ServletInscription extends HttpServlet {
 		String passwordcheck=null;
 		request.setCharacterEncoding("UTF-8");
 		List<Integer> listeCodesErreur=new ArrayList<>();
-		
 		
 		pseudo = request.getParameter("username");
 		nom = request.getParameter("nom");
@@ -112,6 +112,9 @@ public class ServletInscription extends HttpServlet {
 				session.setAttribute("ville", ville);
 				session.setAttribute("MotDePasse", password);
 				session.setAttribute("credit", 0);
+				userID = utilisateurManager.logUtilisateur(pseudo, password);
+				session.setAttribute("userID", userID);
+				
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
 				rd.forward(request, response);
 				

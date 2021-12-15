@@ -69,6 +69,7 @@
 				<p>Adresse : ${sessionScope['rue'] }</p>
 				<p>${sessionScope['codepostal'] } ${sessionScope['ville'] }</p>
 				<p>Crédit : ${sessionScope['credit'] }
+				<p>(A supprimer) Identifiant utilisateur : ${sessionScope['userID'] }
 			</div>	
 			<a href="<%=request.getContextPath()%>/ServletModifierProfil" class="btn btn-primary">Modifier infos</a>
 		</div>
