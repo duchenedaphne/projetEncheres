@@ -14,15 +14,7 @@ public class Enchere implements Serializable {
 	Utilisateur utilisateur;
     private int no_article;
     private Date date_enchere;
-	private String NomArticle;
-    private String description;
-    private String photoArticle;
-    private Date DébutEnchère;
-    private Date FinEnchère;
-    private int     credit;
-    private String rue;
-    private String codepostal;
-    private String ville;
+	
   
     // Constructeur :
     public Enchere() {
@@ -34,7 +26,7 @@ public class Enchere implements Serializable {
 		this.no_article = no_article;
 		this.date_enchere = date_enchere;
 		this.montant_enchere = montant_enchere;
-		this.NomArticle = NomArticle;
+		
 	}
 	
 	// Getter / Setter :	
@@ -79,52 +71,14 @@ public class Enchere implements Serializable {
 		this.montant_enchere = montant_enchere;
 	}
 	
-	public void setNomArticle(String nomArticle) {
-		NomArticle = nomArticle;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 	
-	public void setCatégories(String description) {
-		this.description = description;
-	}
-
-	public void setPhotoArticle(String photoArticle) {
-		this.photoArticle = photoArticle;
-	}
-
-	public void setDébutEnchère(Date débutEnchère) {
-		DébutEnchère = débutEnchère;
-	}
-
-	public void setFinEnchère(Date finEnchère) {
-		FinEnchère = finEnchère;
-	}
-
-	public void setCredit(int credit) {
-		this.credit = credit;
-	}
-
-	public void setRue(String rue) {
-		this.rue = rue;
-	}
-
-	public void setCodepostal(String codepostal) {
-		this.codepostal = codepostal;
-	}
-
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
 
 	
     // Overrive toString :
 	@Override
 	public String toString() {
 		return "Enchere [utilisateur=" + utilisateur + ", no_article=" + no_article + ", date_enchere="
-				+ date_enchere + ", montant_enchere=" + montant_enchere + NomArticle "]";
+				+ date_enchere + ", montant_enchere=" + montant_enchere + "]";
 	}
    
 }

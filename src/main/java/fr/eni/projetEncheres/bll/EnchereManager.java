@@ -30,8 +30,9 @@ public class EnchereManager {
     /**
     * @author Adrien Bodin
     */
-    public void ajouterEnchere( String no_utilisateur, int no_article, Date date_enchere, int montant_enchere, String NomArticle, String description, String catégories, String photoArticle, int credit, Date DébutEnchère, Date FinEnchère, String rue, String codepostal, String ville  )throws SQLException, BusinessException{
+    public void ajouterEnchere( Utilisateur no_utilisateur, int no_article, Date date_enchere, int montant_enchere )throws SQLException, BusinessException{
 
+    	
     
 		Enchere enchere = null;
 		
@@ -41,16 +42,7 @@ public class EnchereManager {
 			enchere.setNo_article(no_article);
 			enchere.setDate_enchere(date_enchere);
 			enchere.setMontant_enchere(montant_enchere);
-			enchere.setNomArticle(NomArticle);
-			enchere.setDescription(description);
-			enchere.setCatégories(catégories);
-			enchere.setPhotoArticle(photoArticle);
-			enchere.setCredit(credit);
-			enchere.setDébutEnchère(DébutEnchère);
-			enchere.setFinEnchère(FinEnchère);
-			enchere.setRue(rue);
-			enchere.setCodepostal(codepostal);
-			enchere.setVille(ville);
+
 
 			
 			this.EnchereDAO.insert(enchere);
