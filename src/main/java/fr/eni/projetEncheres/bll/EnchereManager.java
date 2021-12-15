@@ -19,20 +19,28 @@ public class EnchereManager {
 	
     //---------------------------------------------------------------------
 	//Factory
-    private static EnchereDAO dao;
+	/**
+	    * @author Adrien Bodin
+	     * @return 
+	    */
+	
+    private EnchereDAO enchereDAO;
 
-    static {
-        dao = FactoryDAO.getEnchereDAO();
+    public EnchereManager() {
+        this.enchereDAO = FactoryDAO.getEnchereDAO();
+        
     }
 	
     //---------------------------------------------------------------------
 	//CREATE 
     /**
     * @author Adrien Bodin
+     * @return 
     */
-    public void ajouterEnchere( Utilisateur no_utilisateur, int no_article, Date date_enchere, int montant_enchere )throws SQLException, BusinessException{
+    public Enchere ajouterEnchere( Utilisateur no_utilisateur, int no_article, Date date_enchere, int montant_enchere )throws SQLException, BusinessException{
 
-    	
+    	BusinessException be = new BusinessException();
+		this.ValiderEnchere( be);
     
 		Enchere enchere = null;
 		
@@ -43,9 +51,7 @@ public class EnchereManager {
 			enchere.setDate_enchere(date_enchere);
 			enchere.setMontant_enchere(montant_enchere);
 
-
-			
-			this.EnchereDAO.insert(enchere);
+			this.enchereDAO.insert(enchere);
 			
 		} else {
 			throw be;
@@ -55,13 +61,17 @@ public class EnchereManager {
 
     }
     
-    //---------------------------------------------------------------------
+    private void ValiderEnchere(BusinessException be) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	//---------------------------------------------------------------------
     //READ
     public Enchere getEnchereById(int no_enchere)throws SQLException, BusinessException{
     	
     	
-    		Enchere enchere = 
-        		dao.selectEnchereById(no_enchere);
+    		Enchere enchere = enchereDAO.selectEnchereById(no_enchere);
         return enchere;
     }
 
@@ -69,13 +79,13 @@ public class EnchereManager {
     //UPDATE
     public void updateEnchere(Enchere enchereUpdate)throws SQLException, BusinessException{
 
-    		dao.update(enchereUpdate);
+    	enchereDAO.update(enchereUpdate);
     }
     
     //--------------------------------------------------------------------- 
     //DELETE
     public void deleteEnchere(int enchereDelete)throws SQLException, BusinessException{
     	
-        dao.delete(enchereDelete);
+    	enchereDAO.delete(enchereDelete);
     }
 }
