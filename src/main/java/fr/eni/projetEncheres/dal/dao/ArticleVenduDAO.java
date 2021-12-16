@@ -15,23 +15,6 @@ import fr.eni.projetEncheres.bo.Utilisateur;
 
 public interface ArticleVenduDAO {
 	
-	
-	//insert update delete
-	
-	public void insert(ArticleVendu av)throws  SQLException, BusinessException;
-	
-	public void update(ArticleVendu av)throws  SQLException, BusinessException;
-	
-	public void delete(int no_article)throws  SQLException, BusinessException;
-	
-	//select
-	
-	public ArticleVendu selectArticleVenduById(int no_article)throws  SQLException, BusinessException;
-	
-	public List<ArticleVendu> select()throws  SQLException, BusinessException;
-	
-	public List<ArticleVendu> selectAllArticleVendu()throws  SQLException, BusinessException;
-	
 	public List<ArticleVendu> selectAllArticleVenduByUtilisateur(Utilisateur u)throws  SQLException, BusinessException;
 	
 

@@ -31,11 +31,11 @@ import java.util.List;
  * @author Julian
  */
 
-public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
+public class ArticleVenduDAOJdbcImpl implements DAO<ArticleVendu>, ArticleVenduDAO {
 
 	
 	@Override
-	public ArticleVendu selectArticleVenduById(int no_article) throws BusinessException {
+	public ArticleVendu selectById(int no_article) throws BusinessException {
 		ArticleVendu articleVendu = new ArticleVendu();
 		
 		try (Connection cnx = ConnectionProvider.getConnection()) {
@@ -94,16 +94,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
         return avUtilisateur;
     }
-	/*
-	 * private Utilisateur getavUtilisateur(int uid) throws BusinessException {
-	 * Utilisateur avUtilisateur = null; UtilisateurDAO utilisateurDao =
-	 * FactoryDAO.getUtilisateurODAO(); try { avUtilisateur =
-	 * utilisateurDao.selectById(uid); } catch (SQLException e) { throw new
-	 * BusinessException(); }
-	 * 
-	 * return avUtilisateur; }
-	 */
-    
+
     private Categorie getavCategorie(int cid) throws BusinessException, SQLException {
         Categorie avCategorie = null;
         DAO<Categorie> categorieDao = FactoryDAO.getCategorieDAO();
@@ -112,18 +103,10 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
         return avCategorie;
     }
 	
-	/*
-	 * private Categorie getavCategorie(int cid) throws BusinessException {
-	 * Categorie avCategorie = null; CategorieDAO categorieDao =
-	 * FactoryDAO.getCategorieDAO(); try { avCategorie =
-	 * categorieDao.selectCategorieById(cid); } catch (SQLException e) { throw new
-	 * BusinessException(); }
-	 * 
-	 * return avCategorie; }
-	 */
+
 	
 	@Override
-	public void insert(ArticleVendu avIns) throws BusinessException {
+	public void insert(ArticleVendu data) throws BusinessException {
 
 		try(Connection cnx = ConnectionProvider.getConnection()) {
 			try {
@@ -134,19 +117,19 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 				
 				PreparedStatement pstmt = cnx.prepareStatement(INSERT, 
 						PreparedStatement.RETURN_GENERATED_KEYS);
-		        pstmt.setString(1, avIns.getNom_article());
-		        pstmt.setString(2, avIns.getDescription());
-		        pstmt.setObject(3, avIns.getDate_debut_encheres());
-		        pstmt.setObject(4, avIns.getDate_fin_encheres());
-		        pstmt.setInt(5, avIns.getPrix_initial());
-		        pstmt.setInt(6, avIns.getPrix_vente());
-		        pstmt.setInt(5, avIns.getCategorie().getNo_categorie());
-		        pstmt.setInt(6, avIns.getUtilisateur().getNo_utilisateur());
+		        pstmt.setString(1, data.getNom_article());
+		        pstmt.setString(2, data.getDescription());
+		        pstmt.setObject(3, data.getDate_debut_encheres());
+		        pstmt.setObject(4, data.getDate_fin_encheres());
+		        pstmt.setInt(5, data.getPrix_initial());
+		        pstmt.setInt(6, data.getPrix_vente());
+		        pstmt.setInt(5, data.getCategorie().getNo_categorie());
+		        pstmt.setInt(6, data.getUtilisateur().getNo_utilisateur());
 				
 				pstmt.executeUpdate();
 				ResultSet rs = pstmt.getGeneratedKeys();
 				if(rs.next()) {
-					avIns.setNo_article(rs.getInt(1));
+					data.setNo_article(rs.getInt(1));
 				}
 				rs.close();
 				pstmt.close();
@@ -230,13 +213,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	}
 
 	@Override
-	public List<ArticleVendu> select() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ArticleVendu> selectAllArticleVendu() throws BusinessException {
+	public List<ArticleVendu> selectAll() throws BusinessException {
 		List<ArticleVendu> articleVendus = new ArrayList<ArticleVendu>();
 		try (Connection cnx = ConnectionProvider.getConnection()) {
             	String SELECT_ALL = "SELECT * FROM ARTICLES_VENDUS";
@@ -288,7 +265,27 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		return null;
 	}
 
-
+	
+	/*
+	 * private Utilisateur getavUtilisateur(int uid) throws BusinessException {
+	 * Utilisateur avUtilisateur = null; UtilisateurDAO utilisateurDao =
+	 * FactoryDAO.getUtilisateurODAO(); try { avUtilisateur =
+	 * utilisateurDao.selectById(uid); } catch (SQLException e) { throw new
+	 * BusinessException(); }
+	 * 
+	 * return avUtilisateur; }
+	 */
+    
+	
+	/*
+	 * private Categorie getavCategorie(int cid) throws BusinessException {
+	 * Categorie avCategorie = null; CategorieDAO categorieDao =
+	 * FactoryDAO.getCategorieDAO(); try { avCategorie =
+	 * categorieDao.selectCategorieById(cid); } catch (SQLException e) { throw new
+	 * BusinessException(); }
+	 * 
+	 * return avCategorie; }
+	 */
 	
 	/*
 	 * private ArticleVendu articleBuilder(ResultSet rs) throws SQLException,
