@@ -1,6 +1,8 @@
 package fr.eni.projetEncheres.bo;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Daphné
@@ -195,4 +197,6 @@ public class Utilisateur implements Serializable {
 				+ ", administrateur=" + administrateur + "]";
 	}
 
+	
+	
 }

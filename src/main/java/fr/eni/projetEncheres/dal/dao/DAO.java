@@ -23,5 +23,7 @@ public interface DAO<T> {
 		
 	//Supprimer un élément :
 	public void delete(int id) throws BusinessException;
+
+
 	
 }

@@ -47,6 +47,7 @@ public class ServletModifierProfil extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		List<Integer> listeCodesErreur=new ArrayList<>();
 		
+		int userID = 0;
 		username = request.getParameter("updateUsername");
 		mail = request.getParameter("updateMail");
 		password = request.getParameter("updatePassword");
@@ -105,16 +106,18 @@ public class ServletModifierProfil extends HttpServlet {
 				
 				nom = (String) session.getAttribute("nom");
 				prenom = (String) session.getAttribute("prenom");
+				userID = utilisateurManager.logUtilisateur(username, password);
 				
-				utilisateurManager.updateProfilUtilisateur(username, nom, prenom, mail, telephone, adresse, codepostal, ville, password, checkPassword);
+				utilisateurManager.updateProfilUtilisateur(userID, username, nom, prenom, mail, telephone, adresse, codepostal, ville, password, checkPassword);
 				
-		/*		request.setAttribute("listeCodesErreur",listeCodesErreur);
+				request.setAttribute("listeCodesErreur",listeCodesErreur);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/MonProfil.jsp");
-				rd.forward(request, response);*/
+				rd.forward(request, response);
 				
 			} catch (BusinessException e) {
 				e.printStackTrace();
 				request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
+				System.out.println(e.getMessage());
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/DejaConnecte.jsp");
 				rd.forward(request, response);
 			}

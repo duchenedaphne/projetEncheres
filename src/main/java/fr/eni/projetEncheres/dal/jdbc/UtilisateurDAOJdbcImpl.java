@@ -33,13 +33,15 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 	private static final String SQL_DELETE = "delete from utilisateurs where no_utilisateur = ?";
 	private static final String SQL_SELECTID = "select no_utilisateur from utilisateurs WHERE pseudo = ? and mot_de_passe = ?";
 	private static final String SQL_SELECTMAIL = "select no_utilisateur from utilisateurs WHERE email = ? and mot_de_passe = ?";
-
+	private static final String SQL_SELECT_ONE_PARAMETER = "select pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe from utilisateurs WHERE no_utilisateur = ?";
+	private static final String SQL_SELECT_CREDIT = "select credit from utilisateurs where no_utilisateur = ?";
+	
 	@Override
 	public Utilisateur selectById(int no_utilisateur) throws BusinessException {
 		
 		Utilisateur utilisateur = null;
 		
-		// Méthode à revoir entièrement
+		
 		
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECT_BY_ID);
@@ -228,7 +230,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 	}
 	
 	// Vérifie dans la BDD l'existence de l'utilisateur qui rentre ses logins. S'il existe, renvoie le no_utiliateur. Sinon, renvoie -1
-	@Override
+	
 	public int selectLog(String id, String password) throws BusinessException {
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECTID);
@@ -253,7 +255,7 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 
 
 	// Vérifie dans la BDD l'existence de l'utilisateur qui rentre ses logins. S'il existe, renvoie le no_utiliateur. Sinon, renvoie -1
-		@Override
+		
 		public int selectMail(String id, String password) throws BusinessException {
 			try (Connection cnx = ConnectionProvider.getConnection()) {
 				PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECTMAIL);
@@ -275,6 +277,101 @@ public class UtilisateurDAOJdbcImpl implements DAO<Utilisateur>, UtilisateurDAO 
 			}
 				
 		}
+		
+		public String selectParameter(int userID, String param) throws BusinessException {
+			try (Connection cnx = ConnectionProvider.getConnection()) {
+				PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECT_ONE_PARAMETER);
+				pstmt.setInt(1, userID);
+				
+				ResultSet rs = pstmt.executeQuery();
+				String result = null;
+				String pseudo = null;
+				String nom = null;
+				String prenom = null;
+				String mail = null;
+				String telephone = null;
+				String rue = null;
+				String codepostal = null;
+				String ville = null;
+				String password = null;
+				
+				if (rs.next()) {
+					pseudo = rs.getString("pseudo");
+					nom = rs.getString("nom");
+					prenom = rs.getString("prenom");
+					mail = rs.getString("email");
+					telephone = rs.getString("telephone");
+					rue = rs.getString("rue");
+					codepostal = rs.getString("code_postal");
+					ville = rs.getString("ville");
+					password = rs.getString("mot_de_passe");
+					
+					switch (param) {
+						case "pseudo" : result = pseudo; break;
+						case "nom" : result = nom; break;
+						case "prenom" : result = prenom; break;
+						case "mail" : result = mail; break;
+						case "telephone" : result = telephone; break;
+						case "rue" : result = rue; break;
+						case "codepostal" : result = codepostal; break;
+						case "ville" : result = ville; break;
+						case "password" : result = password; break;
+					}
+				}
+				
+				try {
+					if (rs != null){
+						rs.close();
+					}
+					if (pstmt != null){
+						pstmt.close();
+					}
+					if(cnx!=null){
+						cnx.close();
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+				return result;
+				
+			} catch (SQLException e) {
+				throw new BusinessException();
+			}
+		}
+
+		@Override
+		public int selectCredit(int userID) throws BusinessException {
+			try (Connection cnx = ConnectionProvider.getConnection()) {
+				PreparedStatement pstmt = cnx.prepareStatement(SQL_SELECT_CREDIT);
+				pstmt.setInt(1, userID);
+				
+				ResultSet rs = pstmt.executeQuery();
+				
+				int credit = 0;
+				if (rs.next()) {
+					credit = rs.getInt("credit");
+				}
+				try {
+					if (rs != null){
+						rs.close();
+					}
+					if (pstmt != null){
+						pstmt.close();
+					}
+					if(cnx!=null){
+						cnx.close();
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+				return credit;
+				
+			} catch (SQLException e) {
+				throw new BusinessException();
+			}
+		}	
 }
 
 

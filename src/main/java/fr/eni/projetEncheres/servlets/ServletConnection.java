@@ -1,6 +1,8 @@
 package fr.eni.projetEncheres.servlets;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,13 +43,9 @@ public class ServletConnection extends HttpServlet {
 		HttpSession session = request.getSession();
 		String logged = (String) session.getAttribute("logged");
 		if (logged != null) {
-		//	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/DejaConnecte.jsp");
-		//	rd.forward(request, response);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/DejaConnecte.jsp").forward(request,response);
 		}
 		else {
-		//	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Connection.jsp");
-		//	rd.forward(request, response);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/Connection.jsp").forward(request,response);
 
 		}
@@ -83,25 +81,41 @@ public class ServletConnection extends HttpServlet {
 		} else {
 		
 			try {
+				MessageDigest md = MessageDigest.getInstance("SHA-256");
+				md.update(password.getBytes());
+				byte byteData[] = md.digest();
+				
+				StringBuffer hexString = new StringBuffer();
+				for (int i = 0; i < byteData.length; i++) {
+					hexString.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+				}
+				password = hexString.toString();
+			} catch (NoSuchAlgorithmException e1) {
+				e1.printStackTrace();
+			}
+			
+			try {
 				no_user = utilisateurManager.logUtilisateur(id, password);
 				if (no_user == -1) {
 					request.setAttribute("listeCodesErreur",listeCodesErreur);
 					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Connection.jsp");
 					rd.forward(request, response);
 				} else {
-					Utilisateur user = utilisateurManager.afficherUtilisateur(no_user);
-					session.setAttribute("username", user.getPseudo());
-					session.setAttribute("nom", user.getNom());
-					session.setAttribute("prenom", user.getPrenom());
-					session.setAttribute("telephone", user.getTelephone());
-					session.setAttribute("mail", user.getEmail());
-					session.setAttribute("rue", user.getRue());
-					session.setAttribute("codepostal", user.getCode_postal());
-					session.setAttribute("ville", user.getVille());
-					session.setAttribute("MotDePasse", user.getMot_de_passe());
-					session.setAttribute("credit", user.getCredit());
-					session.setAttribute("userID", no_user);
 					
+					
+			//		Utilisateur user = utilisateurManager.afficherUtilisateur(no_user);
+					session.setAttribute("username", utilisateurManager.getParameter(no_user, "pseudo"));
+					session.setAttribute("nom", utilisateurManager.getParameter(no_user, "nom"));
+					session.setAttribute("prenom", utilisateurManager.getParameter(no_user, "prenom"));
+					session.setAttribute("telephone", utilisateurManager.getParameter(no_user, "telephone"));
+					session.setAttribute("mail", utilisateurManager.getParameter(no_user, "mail"));
+					session.setAttribute("rue", utilisateurManager.getParameter(no_user, "rue"));
+					session.setAttribute("codepostal", utilisateurManager.getParameter(no_user, "codepostal"));
+					session.setAttribute("ville", utilisateurManager.getParameter(no_user, "ville"));
+					session.setAttribute("MotDePasse", utilisateurManager.getParameter(no_user, "password"));
+					session.setAttribute("credit", utilisateurManager.getCredit(no_user));
+					session.setAttribute("userID", no_user);
+					System.out.println(password);
 					String logged = "log";
 					session.setAttribute("logged", logged);
 					

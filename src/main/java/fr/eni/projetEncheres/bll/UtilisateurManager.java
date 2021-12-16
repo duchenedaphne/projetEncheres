@@ -52,8 +52,9 @@ public class UtilisateurManager {
 		return user;
 	}
 	
-	public void updateProfilUtilisateur(String pseudo, String nom, String prenom, String mail, String telephone, String rue, String codepostal, 
+	public void updateProfilUtilisateur(int userID, String pseudo, String nom, String prenom, String mail, String telephone, String rue, String codepostal, 
 			 							String ville, String password, String checkPassword) throws BusinessException {
+		
 		BusinessException be = new BusinessException();
 		this.validerPassword(password, checkPassword, be);
 		
@@ -61,6 +62,7 @@ public class UtilisateurManager {
 		
 		if (!be.hasErreurs()) {
 			user = new Utilisateur();
+			user.setNo_utilisateur(userID);
 			user.setPseudo(pseudo);
 			user.setNom(nom);
 			user.setPrenom(prenom);
@@ -75,6 +77,18 @@ public class UtilisateurManager {
 		} else {
 			throw be;
 		}
+	}
+	
+	public String getParameter(int userID, String param) throws BusinessException {
+		String val_param = null;
+		val_param = utilisateurODAO.selectParameter(userID, param);
+		return val_param;
+	}
+	
+	public int getCredit(int userID) throws BusinessException {
+		int credit = 0;
+		credit = utilisateurODAO.selectCredit(userID);
+		return credit;
 	}
 	
 	public Utilisateur afficherUtilisateur(int no_utilisateur) throws BusinessException {

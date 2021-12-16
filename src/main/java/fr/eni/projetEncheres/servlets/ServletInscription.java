@@ -1,6 +1,8 @@
 package fr.eni.projetEncheres.servlets;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,11 +96,35 @@ public class ServletInscription extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Inscription.jsp");
 			rd.forward(request, response);
 		} else {
+			try {
+				MessageDigest md = MessageDigest.getInstance("SHA-256");
+				MessageDigest md2 = MessageDigest.getInstance("SHA-256");
+				md.update(password.getBytes());
+				md2.update(passwordcheck.getBytes());
+				byte byteData[] = md.digest();
+				byte byteDataCheck[] = md2.digest();
+				
+				StringBuffer hexString = new StringBuffer();
+				StringBuffer hexStringCheck = new StringBuffer();
+				for (int i = 0; i < byteData.length; i++) {
+					hexString.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+				}
+				for (int i = 0; i < byteDataCheck.length; i++) {
+					hexStringCheck.append(Integer.toString((byteDataCheck[i] & 0xff) + 0x100, 16).substring(1));
+				}
+				password = hexString.toString();
+				passwordcheck = hexStringCheck.toString();
+			} catch (NoSuchAlgorithmException e1) {
+				e1.printStackTrace();
+			}
 			UtilisateurManager utilisateurManager = new UtilisateurManager();
 			HttpSession session = request.getSession();
+			System.out.println(password);
+			System.out.println(passwordcheck);
 		//	response.getWriter().append(pseudo).append(nom);
 			
 			try {
+				
 				utilisateurManager.ajouterUtilisateur(pseudo, nom, prenom, mail, telephone, adresse, codepostal, ville, password, passwordcheck, 0, false);
 				String logged = "log";
 				session.setAttribute("logged", logged);
@@ -113,7 +139,7 @@ public class ServletInscription extends HttpServlet {
 				session.setAttribute("MotDePasse", password);
 				session.setAttribute("credit", 0);
 				userID = utilisateurManager.logUtilisateur(pseudo, password);
-				session.setAttribute("userID", userID);
+			//	session.setAttribute("userID", userID);
 				
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp");
 				rd.forward(request, response);
@@ -121,6 +147,7 @@ public class ServletInscription extends HttpServlet {
 			} catch (BusinessException e) {
 				e.printStackTrace();
 				request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
+				System.out.println(e.getMessage());
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/DejaConnecte.jsp");
 				rd.forward(request, response);
 			}	

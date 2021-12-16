@@ -47,7 +47,7 @@
         <input type="submit" value="Connexion" name="submit" class="box-button" >
         <div class="row">
         <div class="d-line">
-        <input type="checkbox" id="rememberme" name="rememberme" value="1">
+        <input type="checkbox" id="rememberme" name="rememberme" value="true">
         <label for="rememberme">Se souvenir de moi</label>
         </div>
         <a href="">Mot de passe oublié ?</a>
