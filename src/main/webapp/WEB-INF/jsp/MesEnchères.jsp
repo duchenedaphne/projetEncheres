@@ -25,7 +25,84 @@
             <img class="align-self-end" src='img/nuage3.svg' alt='' width="150px">
             </div>                                                            
         </div>
+        
+        <div class=" border" >
+        <span>Mes ventes</span>
+        </div>
+        
+        <!--Bloc Cards -->
+        
+        <div class="container pt-5 pb-5">
+        	<div class="row">
+        		<div class="col">
+        			<div class="card w-50 shadow">
+        				<img class="card-img-top" src="img/hoover.jpg" alt="Card image cap">
+                      	<div class="card-body">
+                      	<h5 class="card-title">
+                      	Aspirateur
+                      	</h5>
+                        <p class="card-text">
+                        Prix : 200 points <br>
+                        Fin de l'enchère : 07/01/2022 <br>
+                        Vendeur : Jacques</p>
+                        <a href="#" class="btn btn-primary">Voir l'article</a>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+        		<div class="col">
+        			<div class="card w-50 shadow">
+        				<img class="card-img-top" src="img/ordinateur.jpg" alt="Card image cap">
+                      	<div class="card-body">
+                      	<h5 class="card-title">
+                      	Ordinateur de bureau
+                      	</h5>
+                        <p class="card-text">
+                        Prix : 500 points <br>
+                        Fin de l'enchère : 03/02/2022 <br>
+                        Vendeur : Véronique</p>
+                        <a href="#" class="btn btn-primary">Voir l'article</a>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+			</div>
+		</div>
+        <!--Fin Bloc Cards-->
+        		
+        <div class=" border" >
+        <span>Mes enchères</span>
+        </div>
+        <!--Bloc Cards -->
+        
+        <div class="container pt-5 pb-5">
+        	<div class="row">
+        		<div class="col">
+        			<div class="card w-25 shadow">
+        				<img class="card-img-top" src="img/pneus.jpg" alt="Card image cap">
+                      	<div class="card-body">
+                      	<h5 class="card-title">
+                      	2 pneus michelin
+                      	</h5>
+                        <p class="card-text">
+                        Prix : 150 points <br>
+                        Fin de l'enchère : 07/04/2022 <br>
+                        Vendeur : Marc</p>
+                        <a href="#" class="btn btn-primary">Voir l'article</a>
+                     	</div>
+                     	<div class="card-footer">
+                     		<small class="text-muted"></small>
+                     	</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
 
+        <!--Fin Bloc Cards-->
 
 	
 </body>
