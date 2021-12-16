@@ -10,7 +10,9 @@ import javax.servlet.http.HttpSession;
 
 import fr.eni.projetEncheres.BusinessException;
 import fr.eni.projetEncheres.bll.UtilisateurManager;
-
+/**
+ * @author Daphné
+ */
 /**
  * Servlet implementation class ServletSupprimerProfil
  */
