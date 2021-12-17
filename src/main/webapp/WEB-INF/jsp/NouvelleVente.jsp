@@ -48,7 +48,7 @@
 		        <!--<label for="photoArticle">Photo de l'article : </label>
 		        <input type="file" accept="image/*" required>-->
 		        <label for="credit">Mise à prix : </label>
-		        <input id="credit" type="number" value="100" min="0" max="999" required>
+		        <input id="credit" type="number" value="100" min="0" max="999" name="prix_initial" required>
 		        <label for="DébutEnchère">Début de l'enchère : </label>
 		        <input type="date" name="DébutEnchère" required>
 		        <label for="FinEnchère">Fin de l'enchère : </label>

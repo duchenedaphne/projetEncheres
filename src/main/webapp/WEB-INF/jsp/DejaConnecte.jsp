@@ -14,7 +14,7 @@
 </head>
 <body>
 	<%@ include file="jspf/header.jspf" %>
-	<p>T'es déjà connecté frère !
+	<p>Erreur d'exécution !
 	<form action="<%=request.getContextPath()%>/ServletDeconnection" method="post" name="unlog">
 		<input type="submit" value="Déconnexion">
 	</form>

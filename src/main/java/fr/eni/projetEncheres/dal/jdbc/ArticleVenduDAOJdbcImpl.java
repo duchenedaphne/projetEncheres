@@ -119,12 +119,14 @@ public class ArticleVenduDAOJdbcImpl implements DAO<ArticleVendu>, ArticleVenduD
 						PreparedStatement.RETURN_GENERATED_KEYS);
 		        pstmt.setString(1, data.getNom_article());
 		        pstmt.setString(2, data.getDescription());
-		        pstmt.setObject(3, data.getDate_debut_encheres());
-		        pstmt.setObject(4, data.getDate_fin_encheres());
+		        pstmt.setObject(3, null);
+		        pstmt.setObject(4, null);
 		        pstmt.setInt(5, data.getPrix_initial());
 		        pstmt.setInt(6, data.getPrix_vente());
-		        pstmt.setInt(5, data.getCategorie().getNo_categorie());
-		        pstmt.setInt(6, data.getUtilisateur().getNo_utilisateur());
+		        pstmt.setString(7, "Vente en cours");
+		        pstmt.setInt(8, data.getUtilisateur().getNo_utilisateur());
+		        pstmt.setInt(9, data.getCategorie().getNo_categorie());
+		        
 				
 				pstmt.executeUpdate();
 				ResultSet rs = pstmt.getGeneratedKeys();

@@ -53,6 +53,8 @@ public class ServletNouvelleVente extends HttpServlet {
         UtilisateurManager um = new UtilisateurManager();
         ArticleVenduManager avm = new ArticleVenduManager();
         RetraitManager rm = new RetraitManager();
+        Utilisateur user = new Utilisateur();
+        
         
         
 		
@@ -60,21 +62,23 @@ public class ServletNouvelleVente extends HttpServlet {
 		int no_article = 0;
 		String NomArticle=null;
 		String description=null;
-		String categories=null;
-		String credit=null;
+		String categorie=null;
+		int  credit=0;
 		String DébutEnchère=null;
 		String FinEnchère=null;
 		String rue=null;
 		String codepostal=null;
 		String ville=null;
-
+		
+		
+		
 		request.setCharacterEncoding("UTF-8");
 		List<Integer> listeCodesErreur=new ArrayList<>();
 		
-		NomArticle = request.getParameter("nom_article");
+		NomArticle = request.getParameter("NomArticle");
 		description = request.getParameter("description");
-		categories = request.getParameter("categorie");
-		credit = request.getParameter("prix_initial");
+		categorie = request.getParameter("categorie");
+		credit = Integer.parseInt(request.getParameter("prix_initial"));
 		DébutEnchère = request.getParameter("date_debut_encheres");
 		FinEnchère = request.getParameter("date_fin_encheres");
 		
@@ -82,17 +86,19 @@ public class ServletNouvelleVente extends HttpServlet {
 		codepostal = request.getParameter("codepostal");
 		ville = request.getParameter("ville");
 		
+		Categorie categories = new Categorie(0, categorie);
+		
 		//From ArticleVendu
-		if (NomArticle == null || NomArticle.trim().isEmpty()) {
+	/*	if (NomArticle == null || NomArticle.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
 		if (description == null || description.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
-		if (categories == null || categories.trim().isEmpty()) {
+		if (categorie == null || categorie.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
-		if (credit == null || credit.trim().isEmpty()) {
+		if (credit == 0 ) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
 		}
 		if (DébutEnchère == null || DébutEnchère.trim().isEmpty()) {
@@ -112,7 +118,7 @@ public class ServletNouvelleVente extends HttpServlet {
 		}
 		if (ville == null || ville.trim().isEmpty()) {
 			listeCodesErreur.add(CodesResultatServlets.FORMAT_PSEUDO_ERREUR);
-		}
+		}*/
 		
 		
 		
@@ -129,23 +135,23 @@ public class ServletNouvelleVente extends HttpServlet {
 			
 			try {
 				
+				String pseudo = (String) session.getAttribute("pseudo");
+				String password = (String) session.getAttribute("password");
 				
-				
-				articleVenduManager.createArticleVendu( no_article, NomArticle, description,
-						 DébutEnchère,  FinEnchère, credit, null, 9, categories  );
+				articleVenduManager.createArticleVendu( no_article, NomArticle, description, credit, 0, user, categories  );
 				
 				session.setAttribute("no_article", no_article);
 				session.setAttribute("NomArticle", NomArticle);
 				session.setAttribute("description", description);
 						
-		        dateFormat.parse(session.setAttribute("DébutEnchère", DébutEnchère));
-		        dateFormat.parse(session.setAttribute("FinEnchère", FinEnchère));
+		    //    session.setAttribute("DébutEnchère", dateFormat.parse(DébutEnchère));
+		    //    session.setAttribute("FinEnchère", dateFormat.parse(FinEnchère));
 				session.setAttribute("credit", credit);
-				session.setAttribute("prixfinal", null);
-				session.setAttribute("Utilisateur", utilisateurManager.getUtilisateurConnecte );
+				session.setAttribute("prixfinal", 0);
+				session.setAttribute("Utilisateur", utilisateurManager.logUtilisateur(pseudo, password) );
 				session.setAttribute("categories", categories);
 
-				retraitManager.ajouterRetrait( rue, codepostal, ville);
+		//		retraitManager.ajouterRetrait( rue, codepostal, ville);
 				
 				session.setAttribute("rue", rue);
 				session.setAttribute("codepostal", codepostal);

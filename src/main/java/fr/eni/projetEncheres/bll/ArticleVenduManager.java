@@ -31,10 +31,13 @@ public class ArticleVenduManager {
         dao = FactoryDAO.getArticleVenduDAO();
     }
     
+    public ArticleVenduManager() {
+    	this.dao = FactoryDAO.getArticleVenduDAO();
+    }
     //---------------------------------------------------------------------
 	//CREATE
-    public ArticleVendu createArticleVendu(int no_article, String nom_article, String description, Date date_debut_encheres,
-			Date date_fin_encheres, int prix_initial, int prix_vente, Utilisateur utilisateur, Categorie categorie) throws BusinessException {
+    public ArticleVendu createArticleVendu(int no_article, String nom_article, String description, //Date date_debut_encheres, Date date_fin_encheres, 
+    			int prix_initial, int prix_vente, Utilisateur utilisateur, Categorie categorie) throws BusinessException {
     	
     	BusinessException be = new BusinessException();
     	
@@ -45,12 +48,15 @@ public class ArticleVenduManager {
 	        av.setNo_article(no_article);
 	        av.setNom_article(nom_article);
 	        av.setDescription(description);
-	        av.setDate_debut_encheres(date_debut_encheres);
-	        av.setDate_fin_encheres(date_fin_encheres);
+	        av.setDate_debut_encheres(null);
+	        av.setDate_fin_encheres(null);
 	        av.setPrix_initial(prix_initial);
 	        av.setPrix_vente(prix_vente);
 	        av.setUtilisateur(utilisateur);
 	        av.setCategorie(categorie);
+	        
+			this.articleVenduDAO.insert(av);
+
 	        
         } else {
 			throw be;
