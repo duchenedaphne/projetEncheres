@@ -45,8 +45,8 @@
                                 <option>Informatique</option>
                                 <option>Vêtement</option>
                             </select>
-		        <label for="photoArticle">Photo de l'article : </label>
-		        <input type="file" accept="image/*" required>
+		        <!--<label for="photoArticle">Photo de l'article : </label>
+		        <input type="file" accept="image/*" required>-->
 		        <label for="credit">Mise à prix : </label>
 		        <input id="credit" type="number" value="100" min="0" max="999" required>
 		        <label for="DébutEnchère">Début de l'enchère : </label>
