@@ -184,19 +184,19 @@
             </div>                                                            
         </div>
 
-<section class="container haute shadow">
+			<section class="container haute shadow" style="background-color: #eeeeee;">
                 <div class="text-center rounded my-5 haute ">
                     <h1 class="p-3 bordure">Liste des enchères</h1>
                 </div>
 
-                <form method="get" action="" class=" p-5 rounded bordure " style="background: #fff;">
+                <form method="get" action="" class=" p-5 rounded bordure " style="background-color: #eeeeee;">
                     <h2>Filtres :</h2>
 
                     <div class="md-form  active-pink-2 mb-3 mt-0">
                         <input class="form-control" type="text" placeholder="Rechercher..." aria-label="Search">
                     </div>
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Catégorie :</label>
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Catégories :</label>
                         <div class="col-sm-10">
                             <select id="inputState" class="form-control">
                                 <option selected>Toutes</option>
@@ -209,7 +209,7 @@
                     </div>
 
                     <div class="d-flex justify-content-end pt-5">
-                        <button class="btn btn-action" type="submit">Rerchercher</button>
+                        <input type="submit" value="Rechercher" name="submit" class="box-button">
                     </div>
                 </form>
             </section>

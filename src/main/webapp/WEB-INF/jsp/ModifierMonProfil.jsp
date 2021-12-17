@@ -54,14 +54,14 @@
 		        	<input type="text" class="box-input align-middle" name="updateRue" placeholder="" >
 		        	<label for="updateVille">Ville : </label>
 		        	<input type="text" class="box-input align-middle" name="updateVille" placeholder="" >
-		        	<div class="mr-4">
-		        		<input type="submit" value="Modifier" name="submit" class="box-button">
-		        	</div>
+
 		        </div>
 		        
-		        
 		   </div>
-
+					<div class=" container-fluid d-flex  justify-content-center mt-4 p-3">
+		        		<input type="submit" value="Modifier" name="submit" class="box-button">
+		        	</div>
+		        
 		</form>
 	</div>
 	<div class="container-fluid d-flex  justify-content-center mt-4 p-3">
