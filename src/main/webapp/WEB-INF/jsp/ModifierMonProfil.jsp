@@ -64,7 +64,9 @@
 
 		</form>
 	</div>
+	<div class="container-fluid d-flex  justify-content-center mt-4 p-3">
 	<a href="<%=request.getContextPath()%>/ServletSupprimerProfil" class="btn btn-primary">Supprimer mon compte définitivement</a>
+	</div>
 </body>
 
 <%@ include file="jspf/footer.jspf" %>

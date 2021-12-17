@@ -29,12 +29,12 @@
         </div>
 
 		<div>
-			<div class="border">
+				<div class="container rounded mb-5 shadow" style="background-color: #eeeeee;">	
 				<p>Pseudo : ${sessionScope['username'] }</p>
 				<p>Adresse Mail : ${sessionScope['mail'] }</p>
 				<p>Mot de passe : ************ </p>
 				
-				
+				</div>
 				
 				<!-- Modal
 				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal_infos_compte">Modifier infos</button>
@@ -53,9 +53,9 @@
 					</div>	
 				</div> -->
 				
-			</div>
+
 			
-			<div class="border">
+			<div class="container  shadow rounded mb-5" style="background-color: #eeeeee;">
 				<p>Nom : ${sessionScope['nom'] }</p>
 				<p>Prénom : ${sessionScope['prenom'] }</p>
 				<c:choose>
@@ -69,11 +69,11 @@
 				<p>Adresse : ${sessionScope['rue'] }</p>
 				<p>${sessionScope['codepostal'] } ${sessionScope['ville'] }</p>
 				<p>Crédit : ${sessionScope['credit'] }
-				<p>(A supprimer) Identifiant utilisateur : ${sessionScope['userID'] }
-			</div>	
+			</div>
+			<div class="container-fluid d-flex  justify-content-center mt-4 p-3">
 			<a href="<%=request.getContextPath()%>/ServletModifierProfil" class="btn btn-primary">Modifier infos</a>
+			</div>	
 		</div>
-		
 	
 </body>
 
