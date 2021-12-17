@@ -14,7 +14,7 @@
 <body>
 	 <!-- Header -->
 	<%@ include file="jspf/header.jspf" %>
-	   <div class=" p-2 mb-3 d-flex" style="height: 80px; background-color: rgb(189,221,227);" >
+	   <div class=" p-2 mb-4 d-flex" style="height: 80px; background-color: rgb(189,221,227);" >
             <span class="container-fluid d-flex pull-left align-self-center text-white  w-25" style=" font-weight-bold">
             Connexion</span> 
             <div class="d-flex justify-content-between w-100 ">
@@ -23,10 +23,10 @@
             <img class="align-self-end" src='img/nuage3.svg' alt='' width="150px">
             </div>                                                            
         </div>                                                                
-		      <p>logged : ${sessionScope['logged']}</p>
+		      <p> ${sessionScope['logged']}</p>
 	
 	 <!-- Formulaire de Connexion -->
-	 <div class="container  shadow rounded mb-5 w-25" style="background-color: #eeeeee;">
+	 <div class="container  shadow rounded mt-4 mb-5 w-25" style="background-color: #eeeeee;">
 	<form class="box " action="<%=request.getContextPath()%>/ServletConnection" method="post" name="login">
 		<h1 class="box-title text-center">Connexion</h1>
 		<div class="container-fluid d-flex justify-content-center text-center">
