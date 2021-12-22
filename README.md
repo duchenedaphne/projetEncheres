@@ -20,7 +20,7 @@ Le but du projet est d'élargir le nombre de participants aux enchères par la c
 
 ## Configuration
 
-🌒 Eclipse IDE for Enterprise Java and Web Developers, [Version: 2021-09 (4.21.0)](https://www.eclipse.org/downloads/packages/installer).
+🌘 Eclipse IDE for Enterprise Java and Web Developers, [Version: 2021-09 (4.21.0)](https://www.eclipse.org/downloads/packages/installer).
 
 🔋 Creation de la Base de données sur [SQL Server 2019](https://www.microsoft.com/en-us/sql-server/sql-server-downloads), avec le script [createTablesEncheres](https://github.com/Aladiel/projetEncheres/blob/master/src/main/webapp/sql/createTablesEncheres.sql),
 
