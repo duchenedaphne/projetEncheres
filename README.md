@@ -24,7 +24,7 @@ Le but du projet est d'élargir le nombre de participants aux enchères par la c
 
 🔋 Creation de la Base de données sur [SQL Server 2019](https://www.microsoft.com/en-us/sql-server/sql-server-downloads), avec le script [createTablesEncheres](https://github.com/Aladiel/projetEncheres/blob/master/src/main/webapp/sql/createTablesEncheres.sql),
 
-🐱 Utilisateur du Server [Tomcat v9.0](https://tomcat.apache.org/download-90.cgi),
+🐱 Utilisation du Server [Tomcat v9.0](https://tomcat.apache.org/download-90.cgi),
 
 📚 Ajout de la librairie .jar du driver JDBC [mssql-jdbc-9.4.0.jre8.jar](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
 
